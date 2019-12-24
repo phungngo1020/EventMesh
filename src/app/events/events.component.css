@@ -1,0 +1,31 @@
+.events {
+    background-color: #E2CFA5;
+    width: 40vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#input1 {
+    width: 20vw;
+}
+
+#displayEvent {
+    display: flex;
+    justify-content: space-between;
+}
+
+#start-time, #end-time{
+    color: grey;
+    font-size: .5vw;
+    width: 1.5vw;
+    border: none;
+}
+
+@media screen and (max-width: 900px) {
+    .events {
+        width: 50vw;
+        height: 60vh;
+    }
+    
+}

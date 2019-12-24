@@ -1,0 +1,26 @@
+<div class="tasks">
+    <div class="header-secondary">
+        <h5>TASKS</h5>
+    </div>
+
+    <div class="inputs">
+        <input #input2 id="input2" onkeyup="inputKeyUp(event)" type="text" placeholder="add a task.." onfocus="this.value='', this.placeholder=''" onblur="this.placeholder = 'add a task..'" autocomplete="off">
+        <button id="tasksButton" (click)="addTask(input2.value); input2.value='' ">Add</button>
+    </div>
+    
+    <div class="list">
+        <ul id="container2">
+            <li *ngFor="let task of tasks">
+                <div class="task-name">
+                    <p *ngIf="task.complete" style="text-decoration: line-through;">{{task.label}}</p>
+                    <p *ngIf="!task.complete">{{task.label}}</p>
+                </div>
+                <div class="functions">
+                    <button id="liButton" (click)="completeTask(task)">Done</button>
+                    <button id="liButton" (click)="deleteTask(task)">Delete</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+</div>

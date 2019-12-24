@@ -1,0 +1,27 @@
+.week {
+    width: 80vw;
+    height: 30vh;
+    display: flex;
+    background-color: #EAB679;
+}
+    
+.weekday {
+    width: 11.4vw;
+    height: 30vh;
+    background-color: #EAB679;
+}
+.weekday:not(:last-child) {
+    border-right: 1px solid #E8E5DC;
+}
+
+@media screen and (max-width: 900px) {
+    .week {
+        width: 100vw;
+        font-size: 1.5vh;
+    }
+    .weekday {
+        width: 14.2vw;
+        height: 30vh;
+        text-align: center;
+    }
+}

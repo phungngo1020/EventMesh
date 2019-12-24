@@ -1,0 +1,30 @@
+.options {
+    width: 20vw;
+    height: 20vh;
+}
+.primary-button, .primary-button:hover {
+    width: 20vw;
+    height: 5vh;
+    background-color: #E8E5DC;
+    color: grey;
+}
+.primary-button:not(:last-child) {
+    border-bottom: 1px solid grey;
+}
+
+@media screen and (max-width: 900px) {
+    .options {
+        display: flex;
+        width: 70vw;
+        height: 3vh;
+    }
+    .primary-button, .primary-button:hover {
+        width: 22vw;
+        height: 3vh;
+        font-size: 1.1vh;
+    }
+    .primary-button:not(:last-child) {
+        border-bottom: none;
+        border-right: 1px solid grey;
+    }
+}

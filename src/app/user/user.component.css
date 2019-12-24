@@ -1,0 +1,31 @@
+.user {
+    display: flex;
+    width: 20vw;
+    height: 10vh;
+}
+.picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+}
+#avatar {
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.username {
+    font-size: 2vh;
+    display: flex;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+}
+
+@media screen and (max-width: 900px) {
+    .user {
+        width: 30vw;
+    }
+}

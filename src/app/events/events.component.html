@@ -1,0 +1,24 @@
+<div class="events">
+    <div class="header-secondary">
+        <h5>EVENTS</h5>
+    </div>
+
+    <div class="inputs">
+        <input #input1 id="input1" placeholder="add an event.."  onkeyup="inputKeyUp(event)" onfocus="this.value='', this.placeholder=''" onblur="this.placeholder = 'add an event..'" type="text" autocomplete="off" >
+        From
+        <input #startTime type="text" id="start-time" placeholder="8:00" onfocus="this.value='', this.placeholder=''" onblur="this.placeholder = '8:00'">
+        To
+        <input #endTime type="text" id="end-time" placeholder="9:00">
+        <button id="eventsButton" (click)="addEvent(input1.value, startTime.value); input1.value='' ">Add</button>
+    </div>
+    
+    <div class="list">
+        <ul id="container1">
+            <li *ngFor="let event of events" id="displayEvent">
+                <div>{{event.label}}</div>
+                <div>{{event.start}}</div>
+            </li>
+        </ul>
+    </div>
+
+</div>
