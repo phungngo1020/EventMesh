@@ -6,6 +6,14 @@
     flex-direction: column;
 }
 
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1vw 0 1vw;
+    height: 3vh;
+}
+
 #input1 {
     width: 20vw;
 }
@@ -28,4 +36,13 @@
         height: 60vh;
     }
     
+}
+
+#start-time, #end-time {
+    height: 2vh;
+    width: 3vw;
+    font-size: 1.3vh;
+    background-color: #E8E5DC;
+    border-bottom: 1px solid grey;
+    text-align: center;
 }

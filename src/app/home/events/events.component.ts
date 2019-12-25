@@ -17,6 +17,10 @@ export class EventsComponent implements OnInit {
     this.events.push(newEvent);
   }
   
+  deleteEvent(event) {
+    this.events = this.events.filter(t => t.label !== event.label);
+  }
+
   constructor() { }
 
   ngOnInit() {

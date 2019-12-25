@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DateComponent implements OnInit {
 
+  today: number = Date.now();
+
   constructor() { }
 
   ngOnInit() {

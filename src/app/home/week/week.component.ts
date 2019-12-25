@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeekComponent implements OnInit {
 
+  today: number = Date.now();
+  weekday = (new Date()).getDay();
+
+  checkDate(weekday) {
+    
+  }
+
   constructor() { }
 
   ngOnInit() {

@@ -33,7 +33,7 @@ const appRoutes: Routes = [
     WeekComponent,
     HomeComponent,
     MonthComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

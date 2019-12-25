@@ -8,7 +8,7 @@
         From
         <input #startTime type="text" id="start-time" placeholder="8:00" onfocus="this.value='', this.placeholder=''" onblur="this.placeholder = '8:00'">
         To
-        <input #endTime type="text" id="end-time" placeholder="9:00">
+        <input #endTime type="text" id="end-time" placeholder="9:00" onfocus="this.value='', this.placeholder=''" onblur="this.placeholder = '9:00'">
         <button id="eventsButton" (click)="addEvent(input1.value, startTime.value); input1.value='' ">Add</button>
     </div>
     
@@ -17,6 +17,7 @@
             <li *ngFor="let event of events" id="displayEvent">
                 <div>{{event.label}}</div>
                 <div>{{event.start}}</div>
+                <button id="liButton" (click)="deleteEvent(event)">Delete</button>
             </li>
         </ul>
     </div>

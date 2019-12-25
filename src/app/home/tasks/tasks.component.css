@@ -20,11 +20,6 @@ li {
     display: flex;
     justify-content: space-around;
 }
-#liButton {
-    width: 4vw;
-    height: 2vh;
-    background-color: grey;
-}
 
 @media screen and (max-width: 900px) {
     .tasks {

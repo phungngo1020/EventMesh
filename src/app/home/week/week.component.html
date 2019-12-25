@@ -1,23 +1,24 @@
 <div class="week">
-        <div class="weekday monday">
-          Monday
-        </div>
-        <div class="weekday tuesday">
-          Tuesday
-        </div>
-        <div class="weekday wednesday">
-          Wednesday
-        </div>
-        <div class="weekday thursday">
-          Thursday
-        </div>
-        <div class="weekday friday">
-          Friday
-        </div>
-        <div class="weekday saturday">
-          Saturday
-        </div>
-        <div class="weekday sunday">
-          Sunday
-        </div>
+    <div class="weekday sunday current" *ngIf="this.weekday === 0"><p>Sunday</p></div>
+    <div class="weekday sunday" *ngIf="this.weekday !== 0"><p>Sunday</p></div>
+    
+
+    <div class="weekday monday current" *ngIf="this.weekday === 1"><p>Monday</p></div>
+    <div class="weekday sunday" *ngIf="this.weekday !== 1"><p>Monday</p></div>
+
+    <div class="weekday tuesday current" *ngIf="this.weekday === 2"><p>Tuesday</p></div>
+    <div class="weekday sunday" *ngIf="this.weekday !== 2"><p>Tuesday</p></div>
+
+    <div class="weekday wednesday current" *ngIf="this.weekday === 3"><p>Wednesday</p></div>
+    <div class="weekday sunday" *ngIf="this.weekday !== 3"><p>Wednesday</p></div>
+
+    <div class="weekday thursday current" *ngIf="this.weekday === 4"><p>Thursday</p></div>
+    <div class="weekday sunday" *ngIf="this.weekday !== 4"><p>Thursday</p></div>
+
+    <div class="weekday friday current" *ngIf="this.weekday === 5"><p>Friday</p></div>
+    <div class="weekday sunday" *ngIf="this.weekday !== 5"><p>Friday</p></div>
+
+    <div class="weekday saturday current" *ngIf="this.weekday === 6"><p>Saturday</p></div>
+    <div class="weekday sunday" *ngIf="this.weekday !== 6"><p>Saturday</p></div>
+
 </div>

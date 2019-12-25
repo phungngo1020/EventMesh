@@ -14,7 +14,12 @@
 .weekday:not(:last-child) {
     border-right: 1px solid #E8E5DC;
 }
-
+.current {
+    background-color: rgb(237, 198, 153);
+}
+.header-secondary, .inputs {
+    height: 0;
+}
 @media screen and (max-width: 900px) {
     .week {
         width: 100vw;
