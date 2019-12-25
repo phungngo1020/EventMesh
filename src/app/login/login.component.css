@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+}
+
+.nav {
+    width: 20vw;
+    height: 100vh;
+    background-color: #6E8DBF;
+}
+
+.login {
+    width: 80vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header{ 
+    width: 80vw;
+    height: 10vh;
+    text-align: center;
+    background-color: #EAB679;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+    height: 90vh;
+    background-color: #E2CFA5;
+    padding: 5vh 0 0 0;
+}
+
+p {
+    padding: 3vh 0 0 0;
+}
+
+input {
+    height: 3vh;
+    width: 30vw;
+    border: 0;
+    border-radius: 1vw;
+    background-color: #E8E5DC;
+}
+
+button {
+    margin-top: 2vh;
+}

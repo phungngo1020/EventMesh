@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { toUnicode } from 'punycode';
 
 @Component({
   selector: 'app-tasks',

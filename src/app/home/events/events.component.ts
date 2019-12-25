@@ -16,7 +16,7 @@ export class EventsComponent implements OnInit {
     };
     this.events.push(newEvent);
   }
-
+  
   constructor() { }
 
   ngOnInit() {

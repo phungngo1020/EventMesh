@@ -9,6 +9,7 @@
     width: 11.4vw;
     height: 30vh;
     background-color: #EAB679;
+    text-align: center;
 }
 .weekday:not(:last-child) {
     border-right: 1px solid #E8E5DC;
