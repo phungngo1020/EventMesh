@@ -1,9 +1,29 @@
+{{ onfetchTask() }}
 <div class="week">
-    <div class="weekday sunday current" *ngIf="this.weekday === 0"><p>Sunday</p></div>
+    <div class="weekday sunday current" *ngIf="this.weekday === 0">
+        <div class="day-title">
+            <h5>Sunday</h5>
+        </div>
+        <div class="day-content">
+            <ul class="task-name" *ngIf="loadedTasks.length >= 1">
+                <li class="task-li" *ngFor="let task of loadedTasks">
+                    <p>{{ task.title }}</p>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
     <div class="weekday sunday" *ngIf="this.weekday !== 0"><p>Sunday</p></div>
     
 
-    <div class="weekday monday current" *ngIf="this.weekday === 1"><p>Monday</p></div>
+    <div class="weekday monday current" *ngIf="this.weekday === 1">
+        <p>Monday</p>
+        <ul class="task-name" *ngIf="loadedTasks.length >= 1">
+                <li class="task-li" *ngFor="let task of loadedTasks">
+                    <p>{{ task.title }}</p>
+                </li>
+            </ul>
+    </div>
     <div class="weekday sunday" *ngIf="this.weekday !== 1"><p>Monday</p></div>
 
     <div class="weekday tuesday current" *ngIf="this.weekday === 2"><p>Tuesday</p></div>
@@ -15,7 +35,16 @@
     <div class="weekday thursday current" *ngIf="this.weekday === 4"><p>Thursday</p></div>
     <div class="weekday sunday" *ngIf="this.weekday !== 4"><p>Thursday</p></div>
 
-    <div class="weekday friday current" *ngIf="this.weekday === 5"><p>Friday</p></div>
+    <div class="weekday friday current" *ngIf="this.weekday === 5">
+        <div class="day-title">
+            Friday
+        </div>
+        <ul class="task-name">
+            <li *ngFor="let task of loadedTasks">
+                <p>{{ task.title }}</p>
+            </li>
+        </ul>
+    </div>
     <div class="weekday sunday" *ngIf="this.weekday !== 5"><p>Friday</p></div>
 
     <div class="weekday saturday current" *ngIf="this.weekday === 6"><p>Saturday</p></div>

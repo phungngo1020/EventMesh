@@ -85,7 +85,6 @@ li:nth-child(odd) {
 .list {
     width: 40vw;
     height: 53vh;
-    padding: 0 1vw 0 1vw;
 }
 
 @media screen and (max-width: 900px) {

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 import { Task } from './task.model';
+import { componentFactoryName } from '@angular/compiler';
 
 @Component({
   selector: 'app-tasks',
@@ -66,8 +67,6 @@ export class TasksComponent implements OnInit {
         this.loadedTasks = tasks;
       });
   }
-
-
 
 
     /*

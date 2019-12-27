@@ -4,12 +4,45 @@
     display: flex;
     background-color: #EAB679;
 }
-    
+li {
+    width: 11.4vw;
+    height: 2vh;
+    font-size: 10px;
+    padding: 0;
+    text-align: left;
+    padding-left: 6px;
+}
 .weekday {
     width: 11.4vw;
     height: 30vh;
     background-color: #EAB679;
     text-align: center;
+    display: flex;
+    flex-direction: column
+}
+.day-title {
+    width: 11.4vw;
+    height: 4vh;
+    font-size: 1.7vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.day-content {
+    width: 11.4vw;
+    height: 26vh;
+}
+p {
+    margin: 0;
+}
+.task-name {
+    margin: 0;
+    width: 11.4vw;
+    height: 25vh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 .weekday:not(:last-child) {
     border-right: 1px solid #E8E5DC;
@@ -29,5 +62,8 @@
         width: 14.2vw;
         height: 30vh;
         text-align: center;
+    }
+    li {
+        width: 14.2vw;
     }
 }
