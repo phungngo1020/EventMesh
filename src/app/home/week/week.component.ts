@@ -33,7 +33,7 @@ export class WeekComponent implements OnInit {
 
   onFetchTasks() {
     // Send Http request
-    tasks.fetchTasks();
+    this.fetchTasks();
   }
 
   
