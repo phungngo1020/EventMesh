@@ -30,7 +30,7 @@ button:focus {
 input {
     outline: none;
 }
-#input, #input1, #input2 {
+#input, #input1 {
     height: 2vh;
     width: 30vw;
     background: transparent;

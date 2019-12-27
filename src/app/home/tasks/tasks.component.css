@@ -2,6 +2,31 @@
     background-color: #E8E5DC;
     width: 40vw;
     height: 60vh;
+    display: flex;
+    flex-direction: column;
+}
+.header-secondary {
+    display: flex;
+    width: 40vw;
+    height: 5vh;
+}
+#inputs {
+    display: flex;
+    width: 40vw;
+    height: 20vh;
+}
+form, .form-group {
+    width: 40vw;
+    height: 10vh;
+    transform: translateY(2vh);
+}
+#title {
+    width: 10vw;
+    height: 100px;
+}
+#tasksButton {
+    height: 5vh;
+    width: 8vw;
 }
 
 li {
@@ -10,10 +35,24 @@ li {
     justify-content: space-between;
     padding: 0 1vw 0 1vw;
     height: 3vh;
+} 
+#title {
+    height: 2vh;
+    width: 20vw;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid grey;
+    text-align: left;
+    font-size: 2vh;
+    color: #5E545C;
 }
 
 .task-name {
     width: 70%;
+}
+.task-li {
+    font-size: 1vw;
+    color: black;
 }
 .functions {
     width: 30%;

@@ -1,26 +1,59 @@
 <div class="tasks">
+
     <div class="header-secondary">
         <h5>TASKS</h5>
     </div>
 
     <div class="inputs">
-        <input #input2 id="input2" onkeyup="inputKeyUp(event)" type="text" placeholder="add a task.." onfocus="this.value='', this.placeholder=''" onblur="this.placeholder = 'add a task..'" autocomplete="off">
-        <button id="tasksButton" (click)="addTask(input2.value); input2.value='' ">Add</button>
+        <form #postForm="ngForm" (ngSubmit)="onCreateTask(postForm.value); onFetchTasks();">
+            <div id="inputs">
+                <div class="form-group">
+                    <input type="text" id="title" required ngModel name="title" placeholder="add a task.."/>
+                </div>
+                <button id="tasksButton" type="submit" [disabled]="!postForm.valid" (click)="onFetchTasks()">Add</button>
+            </div>
+            
+        </form>
     </div>
     
+    
     <div class="list">
-        <ul id="container2">
+        <ul class="task-name" *ngIf="loadedTasks.length >= 1">
+            <li class="task-li" *ngFor="let task of loadedTasks">
+                <p>{{ task.title }}</p>
+            </li>
+        </ul>
+    </div>
+    
+</div>
+
+
+
+
+<!--
+    <div class="inputs">
+        <input #input2 id="input2" type="text" placeholder="add a task.." onfocus="this.value='', this.placeholder=''" onblur="this.placeholder = 'add a task..'" autocomplete="off">
+
+            <button id="tasksButton" (click)="addTask(input2.value); input2.value='' ">Add</button>
+        
+        <button id="tasksButton" (click)="onCreateTask(input2.value, false); onFetchTasks(); input2.value='' ">Add</button>
+    </div>
+-->
+
+                        <!--
+        <ul id="container2" *ngIf="loadedTasks.length >= 1">
             <li *ngFor="let task of tasks">
-                <div class="task-name">
+
+
+                   <div class="task-name">
                     <p *ngIf="task.complete" style="text-decoration: line-through;">{{task.label}}</p>
                     <p *ngIf="!task.complete">{{task.label}}</p>
                 </div>
                 <div class="functions">
                     <button id="liButton" (click)="completeTask(task)">Done</button>
                     <button id="liButton" (click)="deleteTask(task)">Delete</button>
-                </div>
+                </div> 
+ 
             </li>
         </ul>
-    </div>
-    
-</div>
+                       -->
