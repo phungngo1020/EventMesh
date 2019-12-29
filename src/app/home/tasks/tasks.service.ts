@@ -10,17 +10,14 @@ export class TasksService {
     constructor(private http: HttpClient) {}
 
     createAndStoreTask(title: string, completed: boolean) {
-        
+
         const taskData: Task = {title: title, completed: completed};
         
-        this.http
+        return this.http
             .post<{ name: string }>(
               'https://eventmesh-1a5be.firebaseio.com/tasks.json',
               taskData
-            )
-            .subscribe(responseData => {
-              console.log(responseData);
-        });
+            );
     }
 
     fetchTasks() {
@@ -39,6 +36,6 @@ export class TasksService {
                     return tasksArray;
                 })
             )
-            
+
     }
 }

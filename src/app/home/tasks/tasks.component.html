@@ -5,27 +5,28 @@
     </div>
 
 
-        <form #postForm="ngForm" (ngSubmit)="onCreateTask(postForm.value); onFetchTasks();">
+        <form #postForm="ngForm" (ngSubmit)="onCreateTask(postForm.value);">
             <div id="inputs">
                 <div class="form-group">
-                    <input 
-                        type="text" 
-                        id="title" 
-                        required 
-                        ngModel 
-                        name="title" 
+                    <input
+                        type="text"
+                        id="title"
+                        required
+                        ngModel
+                        name="title"
                         placeholder="add a task.."
-                        onfocus="this.value='', this.placeholder=''" 
-                        onblur="this.placeholder = 'add a task..'" 
+                        onfocus="this.value='', this.placeholder=''"
+                        onblur="this.placeholder = 'add a task..'"
                         autocomplete="off"
                     />
                 </div>
-                <button 
-                    id="tasksButton" 
-                    type="submit" 
-                    [disabled]="!postForm.valid"
-                >Add</button>
-                {{ onFetchTasks() }}
+                <button
+                    id="tasksButton"
+                    type="submit"
+                    [disabled]="!postForm.valid">
+                    Add
+                </button>
+                <!--{{ onFetchTasks() }}-->
             </div>
         </form>
 
@@ -37,7 +38,7 @@
             </li>
         </ul>
     </div>
-    
+
 </div>
 
 
@@ -48,7 +49,7 @@
         <input #input2 id="input2" type="text" placeholder="add a task.." onfocus="this.value='', this.placeholder=''" onblur="this.placeholder = 'add a task..'" autocomplete="off">
 
             <button id="tasksButton" (click)="addTask(input2.value); input2.value='' ">Add</button>
-        
+
         <button id="tasksButton" (click)="onCreateTask(input2.value, false); onFetchTasks(); input2.value='' ">Add</button>
     </div>
 -->
@@ -65,8 +66,8 @@
                 <div class="functions">
                     <button id="liButton" (click)="completeTask(task)">Done</button>
                     <button id="liButton" (click)="deleteTask(task)">Delete</button>
-                </div> 
- 
+                </div>
+
             </li>
         </ul>
                        -->
