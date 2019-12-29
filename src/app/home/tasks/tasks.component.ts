@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 
 import { Task } from './task.model';
 import { componentFactoryName } from '@angular/compiler';
+import { TasksService } from './tasks.service';
 
 @Component({
   selector: 'app-tasks',
@@ -14,59 +15,31 @@ export class TasksComponent implements OnInit {
   loadedTasks: Task[] = [];
   isFetching = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private tasksService: TasksService) { }
 
   ngOnInit() {
-    this.fetchTasks();
+    this.isFetching = true;
+    this.tasksService.fetchTasks().subscribe(tasks => {
+      this.isFetching = false;
+      this.loadedTasks = tasks;
+    });
   }
 
   onCreateTask(taskData: Task) {
-    taskData = {
-      title: taskData.title,
-      completed: false
-    } 
-    this.http
-      .post<{ name: string }>(
-        'https://eventmesh-1a5be.firebaseio.com/tasks.json',
-        taskData
-      )
-      .subscribe(responseData => {
-        console.log(responseData);
-      });
+    this.tasksService.createAndStoreTask(taskData.title, false);
   }
 
 
   onFetchTasks() {
     // Send Http request
-    this.fetchTasks();
+    this.tasksService.fetchTasks();
   }
 
   onClearTasks() {
     // Send Http request
   }
 
-  private fetchTasks() {
-    this.isFetching = true;
-    this.http
-      .get<{ [key: string]: Task }>(
-        'https://eventmesh-1a5be.firebaseio.com/tasks.json'
-      )
-      .pipe(
-        map(responseData => {
-          const tasksArray: Task[] = [];
-          for (const key in responseData) {
-            if (responseData.hasOwnProperty(key)) {
-              tasksArray.push({ ...responseData[key], id: key });
-            }
-          }
-          return tasksArray;
-        })
-      )
-      .subscribe(tasks => {
-        this.isFetching = false;
-        this.loadedTasks = tasks;
-      });
-  }
+
 
 
     /*

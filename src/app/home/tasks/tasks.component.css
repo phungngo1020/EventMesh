@@ -4,6 +4,7 @@
     height: 60vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
 .header-secondary {
     display: flex;
@@ -12,32 +13,36 @@
 }
 #inputs {
     display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
     width: 40vw;
-    height: 20vh;
+    height: 3vh;
 }
-form, .form-group {
+.list {
+    height: 52vh;
     width: 40vw;
-    height: 10vh;
-    transform: translateY(2vh);
 }
-#title {
-    width: 10vw;
-    height: 100px;
+form {
+    margin: 0;
+    width: 40vw;
+    height: 3vh;
 }
+
 #tasksButton {
-    height: 5vh;
-    width: 8vw;
+    height: 3;
 }
+
 
 li {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1vw 0 1vw;
+    padding: 0 1.2vw 0 1.2vw;
     height: 3vh;
 } 
+
 #title {
-    height: 2vh;
+    height: 2.5vh;
     width: 20vw;
     background: transparent;
     border: none;
@@ -47,13 +52,12 @@ li {
     color: #5E545C;
 }
 
-.task-name {
-    width: 70%;
-}
 .task-li {
+    width: 70%;
     font-size: 1vw;
     color: black;
 }
+
 .functions {
     width: 30%;
     display: flex;

@@ -22,7 +22,7 @@ button, button:hover {
     outline: none;
 }
 button:hover {
-    opacity: 90%;
+    opacity: 80%;
 }
 button:focus {
     outline: 0;
