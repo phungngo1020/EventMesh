@@ -4,7 +4,34 @@
     height: 60vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
+.header-secondary {
+    display: flex;
+    width: 40vw;
+    height: 5vh;
+}
+#inputs {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 40vw;
+    height: 3vh;
+}
+.list {
+    height: 52vh;
+    width: 40vw;
+}
+form {
+    margin: 0;
+    width: 40vw;
+    height: 3vh;
+}
+
+#tasksButton {
+    height: 3;
+}
+
 
 li {
     display: flex;

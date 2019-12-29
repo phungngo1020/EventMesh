@@ -3,6 +3,63 @@
         <h5>EVENTS</h5>
     </div>
 
+    <form #postForm="ngForm" (ngSubmit)="onCreateTask(postForm.value); onFetchTasks();">
+        <div id="inputs">
+            <div class="form-group">
+                <input 
+                    type="text" 
+                    id="title" 
+                    required 
+                    ngModel 
+                    name="title" 
+                    placeholder="add a task.."
+                    onfocus="this.value='', this.placeholder=''" 
+                    onblur="this.placeholder = 'add a task..'" 
+                    autocomplete="off"
+                />
+                <input 
+                    type="text" 
+                    id="start" 
+                    ngModel 
+                    name="start" 
+                    placeholder="8:00"
+                    onfocus="this.value='', this.placeholder=''" 
+                    onblur="this.placeholder = '8:00'" 
+                    autocomplete="off"
+                />
+                <input 
+                    type="text" 
+                    id="end" 
+                    ngModel 
+                    name="end" 
+                    placeholder="9:00"
+                    onfocus="this.value='', this.placeholder=''" 
+                    onblur="this.placeholder = '9:00'" 
+                    autocomplete="off"
+                />
+            </div>
+            <button 
+                id="tasksButton" 
+                type="submit" 
+                    disabled]="!postForm.valid"
+            >Add</button>
+            {{ onFetchTasks() }}
+        </div>
+    </form>
+
+    <div class="list">
+            <ul class="task-li" *ngIf="loadedTasks.length >= 1">
+                <li *ngFor="let task of loadedTasks">
+                    <p>{{ task.title }}</p>
+                </li>
+            </ul>
+        </div>
+
+
+
+
+
+    <!--
     <div class="inputs">
         <input #input1 id="input1" placeholder="add an event.."  onkeyup="inputKeyUp(event)" onfocus="this.value='', this.placeholder=''" onblur="this.placeholder = 'add an event..'" type="text" autocomplete="off" >
         From
@@ -21,5 +78,7 @@
             </li>
         </ul>
     </div>
+    -->
+    
 
 </div>
