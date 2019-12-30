@@ -1,5 +1,5 @@
 // Task model
-export interface Task {
+export class Task {
   id?: string;
   title: string;
   description?: string;

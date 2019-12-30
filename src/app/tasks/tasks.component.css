@@ -6,11 +6,13 @@
     flex-direction: column;
     justify-content: space-around;
 }
+
 .header-secondary {
     display: flex;
     width: 40vw;
     height: 5vh;
 }
+
 #inputs {
     display: flex;
     align-items: flex-start;
@@ -18,10 +20,12 @@
     width: 40vw;
     height: 3vh;
 }
+
 .list {
     height: 52vh;
     width: 40vw;
 }
+
 form {
     margin: 0;
     width: 40vw;
@@ -32,24 +36,12 @@ form {
     height: 3;
 }
 
-
 li {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 1.2vw 0 1.2vw;
     height: 3vh;
-} 
-
-#title {
-    height: 2.5vh;
-    width: 20vw;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid grey;
-    text-align: left;
-    font-size: 2vh;
-    color: #5E545C;
 }
 
 .task-li {

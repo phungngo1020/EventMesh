@@ -10,7 +10,8 @@ export class NOAAWeatherService {
 
   // function to retrieve weather based on given date
   getWeather(date: Date): Weather {
-    return new Weather();
+    let weatherOfDate: Weather = null;
+    return weatherOfDate;
     // create a new weather object using Weather model after calling NOAA api
   }
 

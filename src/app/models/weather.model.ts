@@ -1,5 +1,5 @@
 // Weather model
-export interface Weather {
+export class Weather {
   temperature: string;
   date: string;
   city: string;

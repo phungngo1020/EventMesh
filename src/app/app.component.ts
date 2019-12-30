@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CalendarService } from './services/calendar.service'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'calendar-app';
+
+  title = 'event-mesh';
+
+  constructor(private calendarService: CalendarService) { }
+
+  ngOnInit() { }
+
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarService } from '../services/calendar.service'
 
 @Component({
   selector: 'app-home',
@@ -8,7 +7,7 @@ import { CalendarService } from '../services/calendar.service'
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private calendarService: CalendarService) { }
+  constructor() { }
 
   ngOnInit() { }
 

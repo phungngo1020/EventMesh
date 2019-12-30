@@ -3,82 +3,59 @@
         <h5>EVENTS</h5>
     </div>
 
-    <form #postForm="ngForm" (ngSubmit)="onCreateTask(postForm.value); onFetchTasks();">
+    <form #postForm="ngForm" (ngSubmit)="onCreateTask(postForm.value);">
         <div id="inputs">
             <div class="form-group">
-                <input 
-                    type="text" 
-                    id="title" 
-                    required 
-                    ngModel 
-                    name="title" 
-                    placeholder="add a task.."
-                    onfocus="this.value='', this.placeholder=''" 
-                    onblur="this.placeholder = 'add a task..'" 
+                <input
+                    type="text"
+                    id="title"
+                    required
+                    ngModel
+                    name="title"
+                    placeholder="create an event.."
+                    onfocus="this.value='', this.placeholder=''"
+                    onblur="this.placeholder = 'add a task..'"
                     autocomplete="off"
-                />
-                <input 
-                    type="text" 
-                    id="start" 
-                    ngModel 
-                    name="start" 
+                    size="20vw"
+                />&nbsp;
+                <input
+                    type="text"
+                    id="start"
+                    ngModel
+                    name="start"
                     placeholder="8:00"
-                    onfocus="this.value='', this.placeholder=''" 
-                    onblur="this.placeholder = '8:00'" 
+                    onfocus="this.value='', this.placeholder=''"
+                    onblur="this.placeholder = '8:00'"
                     autocomplete="off"
-                />
-                <input 
-                    type="text" 
-                    id="end" 
-                    ngModel 
-                    name="end" 
+                    size="5vw"
+                />&nbsp;
+                <input
+                    type="text"
+                    id="end"
+                    ngModel
+                    name="end"
                     placeholder="9:00"
-                    onfocus="this.value='', this.placeholder=''" 
-                    onblur="this.placeholder = '9:00'" 
+                    onfocus="this.value='', this.placeholder=''"
+                    onblur="this.placeholder = '9:00'"
                     autocomplete="off"
+                    size="5vw"
                 />
             </div>
-            <button 
-                id="tasksButton" 
-                type="submit" 
-                    disabled]="!postForm.valid"
-            >Add</button>
-            {{ onFetchTasks() }}
+            <button
+                id="tasksButton"
+                type="submit"
+                [disabled]="!postForm.valid">
+                Add
+            </button>
         </div>
     </form>
 
     <div class="list">
-            <ul class="task-li" *ngIf="loadedTasks.length >= 1">
-                <li *ngFor="let task of loadedTasks">
-                    <p>{{ task.title }}</p>
-                </li>
-            </ul>
-        </div>
-
-
-
-
-
-    <!--
-    <div class="inputs">
-        <input #input1 id="input1" placeholder="add an event.."  onkeyup="inputKeyUp(event)" onfocus="this.value='', this.placeholder=''" onblur="this.placeholder = 'add an event..'" type="text" autocomplete="off" >
-        From
-        <input #startTime type="text" id="start-time" placeholder="8:00" onfocus="this.value='', this.placeholder=''" onblur="this.placeholder = '8:00'">
-        To
-        <input #endTime type="text" id="end-time" placeholder="9:00" onfocus="this.value='', this.placeholder=''" onblur="this.placeholder = '9:00'">
-        <button id="eventsButton" (click)="addEvent(input1.value, startTime.value); input1.value='' ">Add</button>
+      <ul class="task-li" *ngIf="loadTasks && loadedTasks.length >= 1">
+        <li *ngFor="let task of loadedTasks">
+          <p>{{ task.title }}</p>
+        </li>
+      </ul>
     </div>
-    
-    <div class="list">
-        <ul id="container1">
-            <li *ngFor="let event of events" id="displayEvent">
-                <div>{{event.label}}</div>
-                <div>{{event.start}}</div>
-                <button id="liButton" (click)="deleteEvent(event)">Delete</button>
-            </li>
-        </ul>
-    </div>
-    -->
-    
 
 </div>
