@@ -33,6 +33,7 @@ export class WeekComponent implements OnInit {
   }
 
   onFetchTasks() {
+    console.log("call once");
     // Send Http request
     this.tasksService.fetchTasks().subscribe(tasks => {
       this.isFetching = false;

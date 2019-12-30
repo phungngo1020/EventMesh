@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClient } from '@angular/common/http';
 
 import { Event } from './event.model';
 import { EventsService } from './events.service';
@@ -48,7 +48,7 @@ export class EventsComponent implements OnInit {
     };
     this.events.push(newEvent);
   }
-  
+
   deleteEvent(event) {
     this.events = this.events.filter(t => t.label !== event.label);
   }

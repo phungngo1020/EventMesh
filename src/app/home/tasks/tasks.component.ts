@@ -26,13 +26,14 @@ export class TasksComponent implements OnInit {
   }
 
   onCreateTask(taskData: Task) {
-    this.tasksService.createAndStoreTask(taskData.title, false);
-  }
-
-
-  onFetchTasks() {
-    // Send Http request
-    this.tasksService.fetchTasks();
+    this.tasksService.createAndStoreTask(taskData.title, false)
+    .subscribe(responseData => {
+      console.log(responseData);
+      this.tasksService.fetchTasks().subscribe(tasks => {
+        this.isFetching = false;
+        this.loadedTasks = tasks;
+      });
+    });
   }
 
   onClearTasks() {
