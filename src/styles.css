@@ -27,6 +27,16 @@ button:hover {
 button:focus {
     outline: 0;
 }
+.primary-button, .primary-button:hover {
+    width: 20vw;
+    height: 5vh;
+    background-color: #E8E5DC;
+    color: grey;
+}
+.primary-button:not(:last-child) {
+    border-bottom: 1px solid grey;
+}
+
 input {
     outline: none;
 }
@@ -50,15 +60,6 @@ ul {
     list-style-type: none;
 }
     
-li {
-    width: 30vw;
-    line-height: 1.4;
-    background-color: rgba(255, 255, 255, 0.4);
-}
-li:nth-child(odd) {
-    background-color: rgba(255, 255, 255, 0.6);
-}
-
 #liButton {
     width: 4vw;
     height: 2vh;
@@ -91,5 +92,14 @@ li:nth-child(odd) {
     h4 {
         font-size: 2vh;
         letter-spacing: 1px;
+    }
+    .primary-button, .primary-button:hover {
+        width: 22vw;
+        height: 3vh;
+        font-size: 1.1vh;
+    }
+    .primary-button:not(:last-child) {
+        border-bottom: none;
+        border-right: 1px solid grey;
     }
 }

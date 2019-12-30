@@ -34,9 +34,10 @@ export class WeekComponent implements OnInit {
 
   onFetchTasks() {
     // Send Http request
+    
     this.tasksService.fetchTasks().subscribe(tasks => {
       this.isFetching = false;
-      this.loadedTasks = tasks;
+      this.loadedTasks = tasks;      
     });
   }
 

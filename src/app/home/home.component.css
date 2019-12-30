@@ -14,7 +14,10 @@
     background-color: #6E8DBF;
 }
 
-    
+#home {
+    background-color: #E2CFA5;
+}
+
 .main {
     display: flex;
     flex-direction: column;

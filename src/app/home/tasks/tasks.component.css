@@ -64,6 +64,11 @@ li {
     justify-content: space-around;
 }
 
+#liButton {
+    background: transparent;
+    color: grey;
+}
+
 @media screen and (max-width: 900px) {
     .tasks {
         width: 50vw;

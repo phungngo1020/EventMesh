@@ -2,7 +2,11 @@
     <div class="nav">
         <app-user></app-user>
         <div class="nav-right">
-            <app-options></app-options>              
+            <div class="options">
+                <a routerLink="/"><button class="primary-button" id="home">Home</button></a>
+                <a routerLink="/login"><button class="primary-button" id="login">Login</button></a>
+                <a routerLink="/month"><button class="primary-button" id="month">Month</button></a>
+              </div>              
             <app-weather></app-weather>
         </div>
     </div>

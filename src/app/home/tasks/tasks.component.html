@@ -5,7 +5,7 @@
     </div>
 
 
-        <form #postForm="ngForm" (ngSubmit)="onCreateTask(postForm.value); onFetchTasks();">
+        <form #postForm="ngForm" (ngSubmit)="onCreateTask(postForm.value);">
             <div id="inputs">
                 <div class="form-group">
                     <input 
@@ -25,7 +25,6 @@
                     type="submit" 
                     [disabled]="!postForm.valid"
                 >Add</button>
-                {{ onFetchTasks() }}
             </div>
         </form>
 
@@ -34,8 +33,12 @@
         <ul class="task-li" *ngIf="loadedTasks.length >= 1">
             <li *ngFor="let task of loadedTasks">
                 <p>{{ task.title }}</p>
+                <button id="liButton" (click)="onClearTasks(task)">&#10005;</button>
             </li>
         </ul>
+        <div class="alert alert-danger" *ngIf="error">
+            <p>Couldn't load tasks</p>
+        </div>
     </div>
     
 </div>

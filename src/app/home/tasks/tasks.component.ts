@@ -13,7 +13,9 @@ import { TasksService } from './tasks.service';
 })
 export class TasksComponent implements OnInit {
   loadedTasks: Task[] = [];
+  loadedEvents: Event[] = [];
   isFetching = false;
+  error = null;
 
   constructor(private http: HttpClient, private tasksService: TasksService) { }
 
@@ -22,42 +24,38 @@ export class TasksComponent implements OnInit {
     this.tasksService.fetchTasks().subscribe(tasks => {
       this.isFetching = false;
       this.loadedTasks = tasks;
+    }, error => {
+      this.error = error.message;
     });
   }
 
   onCreateTask(taskData: Task) {
-    this.tasksService.createAndStoreTask(taskData.title, false);
+    this.tasksService.createAndStoreTask(taskData.title, false).subscribe(responseData => {
+      console.log(responseData);
+      this.tasksService.fetchTasks().subscribe(tasks => {
+        this.isFetching = false;
+        this.loadedTasks = tasks;
+      });
+    });
   }
 
 
   onFetchTasks() {
+    this.isFetching = true;
+    this.tasksService.fetchTasks().subscribe(tasks => {
+      this.isFetching = false;
+      this.loadedTasks = tasks;
+    }, error => {
+      this.error = error.message;
+    });
+  }
+
+  onClearTasks(task: Task) {
     // Send Http request
-    this.tasksService.fetchTasks();
+    console.log("deleting "+ task.id);
+    this.tasksService.deleteTask(task.id).subscribe(() => {
+      this.onFetchTasks();
+    }); 
   }
 
-  onClearTasks() {
-    // Send Http request
-  }
-
-
-
-
-    /*
-  tasks = [];
-
-  addTask(newTaskLabel) {
-    var newTask = {
-      label: newTaskLabel,
-      complete: false
-    };
-    this.tasks.push(newTask);
-  }
-
-  completeTask(task) {
-    task.complete = !task.complete;
-  }
-
-  deleteTask(task) {
-    this.tasks = this.tasks.filter(t => t.label !== task.label);
-  } */
 }

@@ -3,10 +3,16 @@
 }
 
 .nav {
+    display: flex;
+    flex-direction: column;
     width: 20vw;
     height: 100vh;
     background-color: #6E8DBF;
     z-index: 2;
+}
+
+#month {
+    background-color: #E2CFA5;
 }
 
 .month {

@@ -5,7 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './home/user/user.component';
-import { OptionsComponent } from './home/options/options.component';
 import { WeatherComponent } from './home/weather/weather.component';
 import { DateComponent } from './home/date/date.component';
 import { EventsComponent } from './home/events/events.component';
@@ -16,6 +15,7 @@ import { MonthComponent } from './month/month.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MainComponent } from './home/main/main.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,7 +27,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     UserComponent,
-    OptionsComponent,
     WeatherComponent,
     DateComponent,
     EventsComponent,
@@ -36,6 +35,7 @@ const appRoutes: Routes = [
     HomeComponent,
     MonthComponent,
     LoginComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

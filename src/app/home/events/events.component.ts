@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
-
-import { Event } from './event.model';
-import { EventsService } from './events.service';
 
 @Component({
   selector: 'app-events',
@@ -10,35 +6,12 @@ import { EventsService } from './events.service';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  loadedEvents: Event[] = [];
-  isFetching = false;
 
-  constructor(private https: HttpClient, private eventsService: EventsService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.isFetching = true;
-    this.eventsService.fetchEvents().subscribe(events => {
-      this.isFetching = false;
-      this.loadedEvents = events;
-    });
   }
 
-  onCreateEvent(eventData: Event) {
-    this.eventsService.createAndStoreEvent(eventData.title, eventData.start, eventData.end);
-  }
-
-  onFetchEvent() {
-    this.eventsService.fetchEvents();
-  }
-
-  onClearEvents() {
-
-  }
-
-
-
-
-  /*
   events = [];
 
   addEvent(newEventLabel, startTime) {
@@ -52,5 +25,4 @@ export class EventsComponent implements OnInit {
   deleteEvent(event) {
     this.events = this.events.filter(t => t.label !== event.label);
   }
-  */
 }

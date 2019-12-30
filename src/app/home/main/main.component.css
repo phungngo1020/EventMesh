@@ -1,0 +1,262 @@
+.main-events {
+    display: flex;
+    flex-direction: row;
+    color: grey;
+} 
+#li {
+    margin-left: 2vw;
+    width: 30vw;
+    height: 2vh;
+    font-size: 70%;
+    padding: 0;
+    text-align: left;
+    padding-left: 6px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+#li:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+li {
+    padding: 0;
+    width: 11.4vw;
+    height: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} 
+p {
+    margin-left: 5px;
+    font-size: 1.4vh;
+}
+#liButton {
+    width: 20%;
+    height: 100%;
+}
+
+/*********************EVENTS**********************/
+.events {
+    background-color: #E2CFA5;
+    width: 40vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.header-secondary {
+    display: flex;
+    width: 40vw;
+    height: 5vh;
+}
+#inputs {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 40vw;
+    height: 3vh;
+}
+.list {
+    height: 52vh;
+    width: 40vw;
+}
+.event-li {
+    width: 70%;
+    font-size: 1vw;
+    color: black;
+}
+
+form {
+    margin: 0;
+    width: 40vw;
+    height: 3vh;
+}
+
+#eventsButton {
+    height: 3;
+}
+
+#input1 {
+    width: 20vw;
+}
+#title1 {
+    height: 2.5vh;
+    width: 20vw;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid grey;
+    text-align: left;
+    font-size: 2vh;
+    color: #5E545C;
+}
+#displayEvent {
+    display: flex;
+    justify-content: space-between;
+}
+
+#start-time, #end-time{
+    color: grey;
+    font-size: .5vw;
+    width: 1.5vw;
+    border: none;
+}
+
+@media screen and (max-width: 900px) {
+    .events {
+        width: 50vw;
+        height: 60vh;
+    }
+    
+}
+
+#start-time, #end-time {
+    height: 2vh;
+    width: 3vw;
+    font-size: 1.3vh;
+    background-color: #E8E5DC;
+    border-bottom: 1px solid grey;
+    text-align: center;
+}
+
+
+
+/*********************TASKS**********************/
+    .tasks {
+        background-color: #E8E5DC;
+        width: 40vw;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .header-secondary {
+        display: flex;
+        width: 40vw;
+        height: 5vh;
+    }
+    #inputs {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+        width: 40vw;
+        height: 3vh;
+    }
+    .list {
+        height: 52vh;
+        width: 40vw;
+    }
+    form {
+        margin: 0;
+        width: 40vw;
+        height: 3vh;
+    }
+    
+    #tasksButton {
+        height: 3;
+    }
+    
+    #title {
+        height: 2.5vh;
+        width: 20vw;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid grey;
+        text-align: left;
+        font-size: 2vh;
+        color: #5E545C;
+    }
+    
+    .task-li {
+        width: 70%;
+        font-size: 1vw;
+        color: black;
+    }
+    
+    .functions {
+        width: 30%;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    #liButton {
+        background: transparent;
+        color: grey;
+    }
+    
+    @media screen and (max-width: 900px) {
+        .tasks {
+            width: 50vw;
+            height: 60vh;
+        }
+    }
+
+
+
+/*********************WEEK**********************/
+.week {
+    width: 80vw;
+    height: 30vh;
+    display: flex;
+    background-color: #EAB679;
+}
+
+.weekday {
+    width: 11.4vw;
+    height: 30vh;
+    background-color: #EAB679;
+    text-align: center;
+    display: flex;
+    flex-direction: column
+}
+.day-title {
+    width: 11.4vw;
+    height: 4vh;
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.day-content {
+    width: 11.4vw;
+    height: 26vh;
+}
+.task-name {
+    margin: 0;
+    width: 11.4vw;
+    height: 25vh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.weekday:not(:last-child) {
+    border-right: 1px solid #E8E5DC;
+}
+.current {
+    background-color: rgb(237, 198, 153);
+}
+
+@media screen and (max-width: 900px) {
+    .week {
+        width: 100vw;
+        font-size: 1.5vh;
+    }
+    .weekday {
+        width: 14.2vw;
+        height: 30vh;
+        text-align: center;
+    }
+    li {
+        width: 14.2vw;
+    }
+}
+
+#todaysEvent, #todaysTask {
+    width: 11.4vw;
+    height: 2vh;
+    font-size: 1.3vw;
+}
+#todaysEvent {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+#todaysTask {
+    background-color: rgba(255, 255, 255, 0.4);
+}
