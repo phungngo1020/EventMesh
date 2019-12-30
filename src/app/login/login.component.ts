@@ -5,11 +5,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+// component for handling login activities
 export class LoginComponent implements OnInit {
 
+  // constructor
   constructor() { }
 
-  ngOnInit() {
-  }
+  // ngOnInit
+  ngOnInit() { }
 
 }

@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
-import { Task } from './task.model'
+import { Task } from '../models/task.model'
 
 @Injectable({providedIn: 'root'})
 export class TasksService {
 
     constructor(private http: HttpClient) {}
 
-    createAndStoreTask(title: string, completed: boolean) {
+    createAndStoreTask(title: string, createdDate: string) {
 
-        const taskData: Task = {title: title, completed: completed};
-        
+        const taskData: Task = {title: title, createdDate: createdDate};
+
         return this.http
             .post<{ name: string }>(
               'https://eventmesh-1a5be.firebaseio.com/tasks.json',

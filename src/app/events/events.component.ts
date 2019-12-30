@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Event } from './event.model';
+import { Event } from '../models/event.model';
 import { EventsService } from './events.service';
 
 @Component({
@@ -24,7 +24,9 @@ export class EventsComponent implements OnInit {
   }
 
   onCreateEvent(eventData: Event) {
-    this.eventsService.createAndStoreEvent(eventData.title, eventData.start, eventData.end);
+    this.eventsService.createAndStoreEvent(eventData.title,
+      eventData.startDate,
+      eventData.endDate);
   }
 
   onFetchEvent() {

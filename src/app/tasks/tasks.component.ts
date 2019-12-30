@@ -2,20 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
-import { Task } from './task.model';
+import { Task } from '../models/task.model';
 import { componentFactoryName } from '@angular/compiler';
 import { TasksService } from './tasks.service';
+import { CalendarService } from '../services/calendar.service'
 
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.css']
+  styleUrls: ['./tasks.component.css','../app.component.css']
 })
 export class TasksComponent implements OnInit {
   loadedTasks: Task[] = [];
   isFetching = false;
 
-  constructor(private http: HttpClient, private tasksService: TasksService) { }
+  constructor(private http: HttpClient,
+    private tasksService: TasksService,
+    private calendarService: CalendarService) { }
 
   ngOnInit() {
     this.isFetching = true;
@@ -26,7 +29,7 @@ export class TasksComponent implements OnInit {
   }
 
   onCreateTask(taskData: Task) {
-    this.tasksService.createAndStoreTask(taskData.title, false)
+    this.tasksService.createAndStoreTask(taskData.title, this.calendarService.getTodayDate()+"")
     .subscribe(responseData => {
       console.log(responseData);
       this.tasksService.fetchTasks().subscribe(tasks => {

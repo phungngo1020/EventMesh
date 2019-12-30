@@ -1,18 +1,45 @@
 <div class="container">
-    <div class="nav">
-      <app-user></app-user>
-      <div class="nav-right">
-        <app-options></app-options>
-        <app-weather></app-weather>
-      </div>
-  </div>
-    <div class="main">
-      <app-date></app-date>
-      
-      <div class="main-events">
-      <!--  <app-events></app-events>-->
-        <app-tasks></app-tasks>
-      </div>
-      <app-week></app-week>
+
+  <div class="nav">
+
+    <div class="user">
+        <div class="picture">
+          <img src="https://images.unsplash.com/photo-1548707519-f5221b5a5fd8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2165&q=80" alt="" id="avatar">
+        </div>
+        <div class="username">
+            Username
+        </div>
     </div>
+
+    <div class="nav-right">
+      <div class="options">
+        <a routerLink="/"><button class="primary-button">Home</button></a>
+        <a routerLink="/login"><button class="primary-button">Login</button></a>
+        <a routerLink="/month"><button class="primary-button">Month</button></a>
+      </div>
+      <div class="weather">
+        <div class="city">
+          <h3 id="weatherCity">City Name</h3>
+        </div>
+        <div id="weatherDescription">Weather Description</div>
+        <div id="weatherTemperature">Temperature</div>
+        <div class="icon">
+          <img id="weatherIcon" src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="main">
+    <div class="main-date">
+      <h4 id="day">{{ calendarService.getTodayDate() | date: 'EEEE' }}, </h4>
+      &nbsp;
+      <h4 id="date">{{ calendarService.getTodayDate() | date }}</h4>
+    </div>
+    <div class="main-events">
+    <!--  <app-events></app-events>-->
+      <app-tasks></app-tasks>
+    </div>
+    <app-week></app-week>
+  </div>
 </div>

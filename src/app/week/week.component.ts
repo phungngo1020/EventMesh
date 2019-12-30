@@ -1,9 +1,8 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { Task } from '../tasks/task.model';
+import { Task } from '../models/task.model';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { EventEmitter } from 'events';
-
 import { TasksService } from '../tasks/tasks.service';
 
 @Component({
@@ -11,17 +10,15 @@ import { TasksService } from '../tasks/tasks.service';
   templateUrl: './week.component.html',
   styleUrls: ['./week.component.css']
 })
+
 export class WeekComponent implements OnInit {
 
   @Output() fetchTask = new EventEmitter();
 
-
   today: number = Date.now();
   weekday = (new Date()).getDay();
-
   loadedTasks: Task[] = [];
   isFetching = false;
-
 
   constructor(private http: HttpClient, private tasksService: TasksService) { }
 
@@ -33,7 +30,6 @@ export class WeekComponent implements OnInit {
   }
 
   onFetchTasks() {
-    console.log("call once");
     // Send Http request
     this.tasksService.fetchTasks().subscribe(tasks => {
       this.isFetching = false;
