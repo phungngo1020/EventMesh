@@ -2,11 +2,15 @@
     <div class="nav">
         <app-user></app-user>
         <div class="nav-right">
+            <router-outlet></router-outlet>
+            <app-options></app-options>
+            <!--
             <div class="options">
                 <a routerLink="/"><button class="primary-button" id="home">Home</button></a>
-                <a routerLink="/login"><button class="primary-button" id="login">Login</button></a>
+                <a routerLink="/login"><button class="primary-button" id="login" *ngIf="isAuthenticated">Logout</button></a>
+                <a routerLink="/login"><button class="primary-button" id="login" *ngIf="!isAuthenticated">Login</button></a>
                 <a routerLink="/month"><button class="primary-button" id="month">Month</button></a>
-            </div>           
+            </div>     -->       
           <app-weather></app-weather>
         </div>
     </div>
@@ -16,9 +20,49 @@
         </div>
 
         <div class="main">
-            <p>Username</p> <input type="text">
-            <p>Password</p> <input type="text">
-            <button id="eventsButton">Login</button>
+            <div class="alert alert-danger" *ngIf="error">
+                <p>{{ error }}</p>
+            </div>
+            <div *ngIf="isLoading">
+                <app-loading-spinner></app-loading-spinner>
+            </div>
+            <form #authForm="ngForm" class="forms" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+                <div>
+                    <div class="form-group">
+                        <label for="email">E-Mail</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            class="form-controls" 
+                            ngModel 
+                            name="email"
+                            required
+                            email
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>                            
+                        <input 
+                            type="password" 
+                            id="password" 
+                            class="form-controls"
+                            ngModel 
+                            name="password"
+                            required
+                            minlength="6"
+                            password
+                        />
+                    </div>
+            </div>
+            <div class="buttons">
+                <button 
+                    id="loginButton" 
+                    type="submit" 
+                    [disabled]="!authForm.valid"
+                >{{ isLoginMode ? 'Login' : 'Sign Up'}}</button>
+                <button id="switchButton" (click)="onSwitchMode()" type="button">Switch to {{ isLoginMode ? 'Sign Up' : 'Login' }}</button>
+            </div>
+        </form>
         </div>
     </div>
 </div>

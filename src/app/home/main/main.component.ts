@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Task } from '../tasks/task.model';
-import { Event } from '../tasks/event.model';
-import { TasksService } from '../tasks/tasks.service';
+import { Task } from '../../shared/task.model';
+import { Event } from '../../shared/event.model';
+import { DataStorageService } from '../../shared/data-storage.service';
 
 @Component({
   selector: 'app-main',
@@ -15,17 +15,17 @@ export class MainComponent implements OnInit {
   isFetching = false;
   error = null;
 
-  constructor(private http: HttpClient, private tasksService: TasksService) { }
+  constructor(private http: HttpClient, private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
     this.isFetching = true;
-    this.tasksService.fetchTasks().subscribe(tasks => {
+    this.dataStorageService.fetchTasks().subscribe(tasks => {
       this.isFetching = false;
       this.loadedTasks = tasks;
     }, error => {
       this.error = error.message;
     });
-    this.tasksService.fetchEvents().subscribe(events => {
+    this.dataStorageService.fetchEvents().subscribe(events => {
       this.isFetching = false;
       this.loadedEvents = events;
     }, error => {
@@ -34,9 +34,9 @@ export class MainComponent implements OnInit {
   }
 
   onCreateTask(taskData: Task) {
-    this.tasksService.createAndStoreTask(taskData.title, false).subscribe(responseData => {
+    this.dataStorageService.createAndStoreTask(taskData.title, false).subscribe(responseData => {
       console.log(responseData);
-      this.tasksService.fetchTasks().subscribe(tasks => {
+      this.dataStorageService.fetchTasks().subscribe(tasks => {
         this.isFetching = false;
         this.loadedTasks = tasks;
       });
@@ -44,7 +44,7 @@ export class MainComponent implements OnInit {
   }
   onFetchTasks() {
     this.isFetching = true;
-    this.tasksService.fetchTasks().subscribe(tasks => {
+    this.dataStorageService.fetchTasks().subscribe(tasks => {
       this.isFetching = false;
       this.loadedTasks = tasks;
     }, error => {
@@ -54,7 +54,7 @@ export class MainComponent implements OnInit {
   onClearTasks(task: Task) {
     // Send Http request
     console.log("deleting "+ task.id);
-    this.tasksService.deleteTask(task.id).subscribe(() => {
+    this.dataStorageService.deleteTask(task.id).subscribe(() => {
       this.onFetchTasks();
     }); 
   }
@@ -65,9 +65,9 @@ export class MainComponent implements OnInit {
   onCreateEvent(eventTitle) {
     console.log("clicked");
     console.log(eventTitle);
-    this.tasksService.createAndStoreEvent(eventTitle).subscribe(responseData => {
+    this.dataStorageService.createAndStoreEvent(eventTitle).subscribe(responseData => {
       console.log(responseData);
-      this.tasksService.fetchEvents().subscribe(events => {
+      this.dataStorageService.fetchEvents().subscribe(events => {
         this.isFetching = false;
         this.loadedEvents = events;
         console.log(events);
@@ -76,7 +76,7 @@ export class MainComponent implements OnInit {
   }
   onFetchEvents() {
     this.isFetching = true;
-    this.tasksService.fetchEvents().subscribe(events => {
+    this.dataStorageService.fetchEvents().subscribe(events => {
       this.isFetching = false;
       this.loadedEvents = events;
     }, error => {
@@ -86,7 +86,7 @@ export class MainComponent implements OnInit {
   onClearEvents(event: Event) {
     // Send Http request
     console.log("deleting "+ event.id);
-    this.tasksService.deleteEvent(event.id).subscribe(() => {
+    this.dataStorageService.deleteEvent(event.id).subscribe(() => {
       this.onFetchEvents();
     }); 
   }

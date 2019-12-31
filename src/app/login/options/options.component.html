@@ -1,0 +1,7 @@
+<div class="options">
+          <router-outlet></router-outlet>
+          <a routerLink="/"><button class="primary-button" id="home">Home</button></a>
+          <a routerLink="/login"><button class="primary-button" id="login" *ngIf="isAuthenticated">Logout</button></a>
+          <a routerLink="/login"><button class="primary-button" id="login" *ngIf="!isAuthenticated">Login</button></a>
+          <a routerLink="/month"><button class="primary-button" id="month">Month</button></a>
+        </div>

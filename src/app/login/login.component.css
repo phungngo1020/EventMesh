@@ -1,3 +1,4 @@
+
 .container {
     display: flex;
     width: 100vw;
@@ -18,9 +19,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-#login {
-    background-color: #E2CFA5;
 }
 .options {
     width: 20vw;
@@ -43,6 +41,40 @@
     background-color: #E2CFA5;
     padding: 5vh 0 0 0;
 }
+.forms {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: 20vh;
+    text-align: center;
+    justify-content: space-evenly;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80vw;
+    height: 10vh;
+}
+button:disabled {
+    opacity: 60%;
+}
+#loginButton, #switchButton {
+    width: 20vw;
+    height: 5vh;
+    background-color: grey;
+    color: white;
+    border-radius: 8px;
+}
+.form-group {
+    display: flex;
+}
+label {
+    width: 40%;
+}
+input {
+    width: 60%;
+}
 
 p {
     padding: 3vh 0 0 0;
@@ -52,9 +84,10 @@ input {
     height: 3vh;
     width: 30vw;
     border: 0;
-    border-radius: 1vw;
+    border-radius: 5px;
     background-color: #E8E5DC;
 }
+
 
 @media screen and (max-width: 900px) {
     .options {
