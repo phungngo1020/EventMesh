@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="nav">
+    <div class="dark-mode-nav" [className]="currentMode==='dark' ? 'dark-mode-nav' : 'nav'">
       <app-user></app-user>
       <div class="nav-right">
         <app-options></app-options>
@@ -12,12 +12,6 @@
       <div class="main-events">
         <app-main></app-main>
       </div>
-      <!--
-      <div class="main-events">
-       <app-events></app-events>
-        <app-tasks></app-tasks>
-      </div>
-      <app-week></app-week>
-      -->
+
     </div>
 </div>

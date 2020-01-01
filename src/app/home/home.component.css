@@ -13,6 +13,15 @@
     height: 100vh;
     background-color: #6E8DBF;
 }
+    
+.dark-mode-nav {
+    display: flex;
+    flex-direction: column;
+    
+    width: 20vw;
+    height: 100vh;
+    background-color: #282726;
+}
 
 #home {
     background-color: #E2CFA5;

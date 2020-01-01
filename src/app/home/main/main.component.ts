@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Task } from '../../shared/task.model';
 import { Event } from '../../shared/event.model';
 import { DataStorageService } from '../../shared/data-storage.service';
+import { AuthService } from '../../login/auth.service';
 
 @Component({
   selector: 'app-main',
@@ -15,10 +16,15 @@ export class MainComponent implements OnInit {
   isFetching = false;
   error = null;
 
-  constructor(private http: HttpClient, private dataStorageService: DataStorageService) { }
+  constructor(
+    private http: HttpClient, 
+    private dataStorageService: DataStorageService,
+    private authService: AuthService) { }
+
 
   ngOnInit() {
     this.isFetching = true;
+    this.onFetchMode();
     this.dataStorageService.fetchTasks().subscribe(tasks => {
       this.isFetching = false;
       this.loadedTasks = tasks;
@@ -33,14 +39,20 @@ export class MainComponent implements OnInit {
     });
   }
 
+  
   onCreateTask(taskData: Task) {
-    this.dataStorageService.createAndStoreTask(taskData.title, false).subscribe(responseData => {
-      console.log(responseData);
-      this.dataStorageService.fetchTasks().subscribe(tasks => {
-        this.isFetching = false;
-        this.loadedTasks = tasks;
+    console.log(this.authService.signedin);
+    if(this.authService.signedin === true) {
+      this.dataStorageService.createAndStoreTask(taskData.title, false).subscribe(responseData => {
+        console.log(responseData);
+        this.dataStorageService.fetchTasks().subscribe(tasks => {
+          this.isFetching = false;
+          this.loadedTasks = tasks;
+        });
       });
-    });
+    } else if (this.authService.signedin === false) {
+      this.loadedTasks.push(taskData);
+    }
   }
   onFetchTasks() {
     this.isFetching = true;
@@ -65,14 +77,19 @@ export class MainComponent implements OnInit {
   onCreateEvent(eventTitle) {
     console.log("clicked");
     console.log(eventTitle);
-    this.dataStorageService.createAndStoreEvent(eventTitle).subscribe(responseData => {
-      console.log(responseData);
-      this.dataStorageService.fetchEvents().subscribe(events => {
-        this.isFetching = false;
-        this.loadedEvents = events;
-        console.log(events);
+    if(this.authService.signedin===true) {
+      this.dataStorageService.createAndStoreEvent(eventTitle).subscribe(responseData => {
+        console.log(responseData);
+        this.dataStorageService.fetchEvents().subscribe(events => {
+          this.isFetching = false;
+          this.loadedEvents = events;
+          console.log(events);
+        });
       });
-    });
+    } else if (this.authService.signedin === false) {
+      this.loadedEvents.push(eventTitle);
+    }
+    
   }
   onFetchEvents() {
     this.isFetching = true;
@@ -91,4 +108,16 @@ export class MainComponent implements OnInit {
     }); 
   }
 
+
+  currentMode: string = 'dark';
+  onFetchMode() {
+    if(this.authService.signedin === true) {
+      this.dataStorageService.fetchMode().subscribe(resMode => {
+        this.currentMode = resMode[0].mode;
+        console.log(this.currentMode);
+      }, error => {
+        this.error = error.message;
+      });
+    }
+  }
 }

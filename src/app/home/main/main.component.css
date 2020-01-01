@@ -42,6 +42,14 @@ p {
     flex-direction: column;
     justify-content: space-around;
 }
+.dark-mode-events {
+    background-color: #474441;
+    width: 40vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 .header-secondary {
     display: flex;
     width: 40vw;
@@ -119,13 +127,16 @@ form {
 
 
 /*********************TASKS**********************/
-    .tasks {
+    .tasks, .dark-mode-tasks {
         background-color: #E8E5DC;
         width: 40vw;
         height: 60vh;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+    }
+    .dark-mode-tasks {
+        background-color: #383735;
     }
     .header-secondary {
         display: flex;
@@ -191,20 +202,28 @@ form {
 
 
 /*********************WEEK**********************/
-.week {
+.week, .dark-mode-week {
     width: 80vw;
     height: 30vh;
     display: flex;
     background-color: #EAB679;
 }
-
+.dark-mode-week {
+    background-color: #686661;
+    color: #E8E5DC;
+}
+.current {
+    background-color: rgb(237, 198, 153);
+}
+.dark-mode-current {
+    background-color: #72716d;
+}
 .weekday {
     width: 11.4vw;
     height: 30vh;
-    background-color: #EAB679;
     text-align: center;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
 }
 .day-title {
     width: 11.4vw;
@@ -230,9 +249,7 @@ form {
 .weekday:not(:last-child) {
     border-right: 1px solid #E8E5DC;
 }
-.current {
-    background-color: rgb(237, 198, 153);
-}
+
 
 @media screen and (max-width: 900px) {
     .week {

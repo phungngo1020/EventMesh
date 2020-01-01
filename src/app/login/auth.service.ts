@@ -16,6 +16,8 @@ export interface AuthResponseData {
 @Injectable({providedIn: 'root'})
 export class AuthService {
     user = new BehaviorSubject<User>(null); 
+    username: string;
+    signedin = false;
 
     constructor(private http: HttpClient) {}
 
@@ -35,8 +37,10 @@ export class AuthService {
                 resData.idToken, 
                 +resData.expiresIn
             );
+            this.signedin = true;
         })
         );
+        
     }
 
     login(email: string, password: string) {
@@ -55,6 +59,8 @@ export class AuthService {
                 resData.idToken, 
                 +resData.expiresIn
             );
+            this.username = resData.email;
+            this.signedin = true;
         })
         );
     }

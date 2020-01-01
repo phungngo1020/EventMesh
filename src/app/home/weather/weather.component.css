@@ -13,6 +13,7 @@
     object-fit: cover;
 }
 input {
+    margin-top: 2vh;
     outline: none;
     background: transparent;
     border: none;

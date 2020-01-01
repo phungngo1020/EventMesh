@@ -2,7 +2,10 @@
     <div class="picture">
       <img src="https://images.unsplash.com/photo-1548707519-f5221b5a5fd8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2165&q=80" alt="" id="avatar">
     </div>
-    <div class="username">
-        Username
+    <div class="username" *ngIf="username === null">
+      Guest
+    </div>
+    <div class="username" *ngIf="username!==null">
+      {{ username }}
     </div>
 </div>

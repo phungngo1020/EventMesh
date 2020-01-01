@@ -1,6 +1,6 @@
 <div class="main-events">
     <!--<app-events></app-events>-->
-    <div class="events">
+    <div class="dark-mode-events" [className]="currentMode==='dark' ? 'dark-mode-events' : 'events'">
             <div class="header-secondary">
                 <h5>EVENTS</h5>
             </div>
@@ -44,7 +44,7 @@
 
 
     <!--<app-tasks></app-tasks>-->
-        <div class="tasks">
+        <div class="dark-mode-tasks" [className]="currentMode==='dark' ? 'dark-mode-tasks' : 'tasks'">
             <div class="header-secondary">
                 <h5>TASKS</h5>
             </div>
@@ -90,9 +90,9 @@
 
 
 <!--<app-week></app-week>-->
-    <div class="week">
+    <div class="week" [className]="currentMode==='dark' ? 'dark-mode-week' : 'week'">
         <!--Sunday-->
-        <div class="weekday sunday current" *ngIf="this.weekday === 0">
+        <div class="weekday sunday dark-mode-current" *ngIf="this.weekday === 0" [className]="currentMode==='dark' ? 'weekday dark-mode-current' : 'weekday current'">
             <div class="day-title">
                 Sunday
             </div>
@@ -113,7 +113,7 @@
             </div>
         </div>
         <!--Monday-->
-        <div class="weekday monday current" *ngIf="this.weekday === 1">
+        <div class="weekday monday dark-mode-current" *ngIf="this.weekday === 1" [className]="currentMode==='dark' ? 'weekday dark-mode-current' : 'weekday current'">
             <div class="day-title">
                 Monday
             </div>
@@ -134,7 +134,7 @@
             </div>
         </div>
         <!--Tuesday-->
-        <div class="weekday tuesday current" *ngIf="this.weekday === 2">
+        <div class="weekday tuesday dark-mode-current" *ngIf="this.weekday === 2" [className]="currentMode==='dark' ? 'weekday dark-mode-current' : 'weekday current'">
             <div class="day-title">
                 Tuesday
             </div>
@@ -155,7 +155,7 @@
             </div>
         </div>
         <!--Wednesday-->
-        <div class="weekday wednesday current" *ngIf="this.weekday === 3">
+        <div class="weekday wednesday dark-mode-current" *ngIf="this.weekday === 3" [className]="currentMode==='dark' ? 'weekday dark-mode-current' : 'weekday current'">
             <div class="day-title">
                 Wednesday
             </div>
@@ -176,7 +176,7 @@
             </div>
         </div>
         <!--Thursday-->
-        <div class="weekday thursday current" *ngIf="this.weekday === 4">
+        <div class="weekday thursday dark-mode-current" *ngIf="this.weekday === 4" [className]="currentMode==='dark' ? 'weekday dark-mode-current' : 'weekday current'">
             <div class="day-title">
                 Thursday
             </div>
@@ -197,7 +197,7 @@
             </div>
         </div>
         <!--Friday-->
-        <div class="weekday friday current" *ngIf="this.weekday === 5">
+        <div class="weekday friday dark-mode-current" *ngIf="this.weekday === 5" [className]="currentMode==='dark' ? 'weekday dark-mode-current' : 'weekday current'">
             <div class="day-title">
                 Friday
             </div>
@@ -218,7 +218,7 @@
             </div>
         </div>
         <!--Saturday-->
-        <div class="weekday saturday current" *ngIf="this.weekday === 6">
+        <div class="weekday saturday dark-mode-current" *ngIf="this.weekday === 6" [className]="currentMode==='dark' ? 'weekday dark-mode-current' : 'weekday current'">
             <div class="day-title">
                 Saturday
             </div>

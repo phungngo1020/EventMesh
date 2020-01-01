@@ -4,4 +4,7 @@
           <a routerLink="/login"><button class="primary-button" id="login" *ngIf="isAuthenticated">Logout</button></a>
           <a routerLink="/login"><button class="primary-button" id="login" *ngIf="!isAuthenticated">Login</button></a>
           <a routerLink="/month"><button class="primary-button" id="month">Month</button></a>
-        </div>
+          <form #postForm1="ngForm" (ngSubmit)="onUpdateMode();" *ngIf="isAuthenticated===true">
+            <button type="submit" class="primary-button" (click)="reloadPage()">Switch theme</button> 
+          </form>
+</div>

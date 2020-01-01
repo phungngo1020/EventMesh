@@ -1,10 +1,14 @@
-.main-date {
+.main-date, .dark-mode-main-date {
     width: 80vw;
     height: 10vh;
     display: flex;
     justify-content: center; 
     align-items: center;
     background-color: #EAB679;
+}
+.dark-mode-main-date {
+    background-color: #686661;
+    color: #E8E5DC;
 }
 
 @media screen and (max-width: 900px) {

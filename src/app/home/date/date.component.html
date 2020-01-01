@@ -1,4 +1,4 @@
-<div class="main-date">
+<div class="dark-mode-main-date" [className]="currentMode==='dark' ? 'dark-mode-main-date' : 'main-date'">
     <h4 id="day">{{ today | date: 'EEEE' }}, </h4>
     &nbsp;
     <h4 id="date">{{ today | date }}</h4>
