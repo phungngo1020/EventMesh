@@ -1,11 +1,25 @@
 <div class="weather">
     <div class="city">
-        <h3 id="weatherCity">City Name</h3> 
+        
+        <form #postForm="ngForm" (ngSubmit)="fetchWeather(postForm.value);">
+            <input 
+                #userCity
+                type="text" 
+                ngModel 
+                name="userCity"
+                placeholder="get weather in... city"
+                onfocus="this.value='', this.placeholder=''" 
+                onblur="this.placeholder = 'get weather in... city'" 
+                autocomplete="off"
+            />
+            <button type = "submit">Enter</button>
+        </form>
     </div>
-    <div id="weatherDescription">Weather Description</div>
-    <div id="weatherTemperature">Temperature</div>
+    <div class="weatherCity"><h3 id="weatherCity">{{ cityName }}</h3></div>
+    <div id="weatherDescription">{{description}}</div>
+    <div id="weatherTemperature">{{temp}}</div>
     <div class="icon">
-        <img id="weatherIcon" src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+        <img id="weatherIcon" src={{icon}} alt="">
     </div>
 
 </div>

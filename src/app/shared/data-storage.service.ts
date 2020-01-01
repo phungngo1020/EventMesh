@@ -29,7 +29,7 @@ export class DataStorageService {
         return this.authService.user.pipe(take(1), exhaustMap(user => {
             return this.http
             .post<{ name: string }>(
-                'https://eventmesh-1a5be.firebaseio.com/tasks/'+ user.id +'.json?', taskData, {
+                'https://eventmesh-1a5be.firebaseio.com/'+ user.id + '/tasks' +'.json?', taskData, {
                 params: new HttpParams().set('auth', user.token)
             }
             );
@@ -41,7 +41,7 @@ export class DataStorageService {
         return this.authService.user.pipe(take(1), exhaustMap(user => {
             return this.http
             .get<{ [key: string]: Task }>(
-            'https://eventmesh-1a5be.firebaseio.com/tasks/'+ user.id +'.json?', {
+            'https://eventmesh-1a5be.firebaseio.com/'+ user.id + '/tasks' +'.json?', {
                 params: new HttpParams().set('auth', user.token)
             }
             );
@@ -58,8 +58,20 @@ export class DataStorageService {
         );
     }
     deleteTask(id: string) {
-        return this.http.delete('https://eventmesh-1a5be.firebaseio.com/tasks/' + id + '.json?');
+        /*
+        return this.http.delete('https://eventmesh-1a5be.firebaseio.com/'+ '/tasks' +'.json?');
+        */
+        return this.authService.user.pipe(take(1), exhaustMap(user => {
+            return this.http
+            .delete(
+            'https://eventmesh-1a5be.firebaseio.com/'+ user.id + '/tasks/' + id + '.json?', {
+                params: new HttpParams().set('auth', user.token)
+            }
+            );
+        })
+        );
     }
+
 
     /****** EVENTS ******/
 
@@ -78,7 +90,7 @@ export class DataStorageService {
         return this.authService.user.pipe(take(1), exhaustMap(user => {
             return this.http
             .post<{ name: string }>(
-                'https://eventmesh-1a5be.firebaseio.com/events/'+ user.id +'.json?', title, {
+                'https://eventmesh-1a5be.firebaseio.com/'+ user.id + '/events' +'.json?', title, {
                 params: new HttpParams().set('auth', user.token)
             }
             );
@@ -89,7 +101,7 @@ export class DataStorageService {
         return this.authService.user.pipe(take(1), exhaustMap(user => {
             return this.http
             .get<{ [key: string]: Event}>(
-                'https://eventmesh-1a5be.firebaseio.com/events/' + user.id + '.json?', {
+                'https://eventmesh-1a5be.firebaseio.com/'+ user.id + '/events' +'.json?', {
                 params: new HttpParams().set('auth', user.token)
             }
             );
@@ -106,8 +118,17 @@ export class DataStorageService {
         );
 
     }
+
     deleteEvent(id: string) {
-        return this.http.delete('https://eventmesh-1a5be.firebaseio.com/events/' + id + '.json');
+        return this.authService.user.pipe(take(1), exhaustMap(user => {
+            return this.http
+            .delete(
+            'https://eventmesh-1a5be.firebaseio.com/'+ user.id + '/events/' + id + '.json?', {
+                params: new HttpParams().set('auth', user.token)
+            }
+            );
+        })
+        );
     }
 
 }
