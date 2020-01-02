@@ -1,25 +1,18 @@
 <div class="container">
-    <div class="nav">
+    <div class="nav" [className]="currentMode==='dark' ? 'dark-mode-nav' : 'nav'">
         <app-user></app-user>
         <div class="nav-right">
             <router-outlet></router-outlet>
-            <app-options></app-options>
-            <!--
-            <div class="options">
-                <a routerLink="/"><button class="primary-button" id="home">Home</button></a>
-                <a routerLink="/login"><button class="primary-button" id="login" *ngIf="isAuthenticated">Logout</button></a>
-                <a routerLink="/login"><button class="primary-button" id="login" *ngIf="!isAuthenticated">Login</button></a>
-                <a routerLink="/month"><button class="primary-button" id="month">Month</button></a>
-            </div>     -->       
+            <app-options></app-options>   
           <app-weather></app-weather>
         </div>
     </div>
     <div class="login">
-        <div class="header">
+        <div class="header" [className]="currentMode==='dark' ? 'dark-mode-header' : 'header'">
             <h4>Log In</h4>
         </div>
 
-        <div class="main">
+        <div class="main" [className]="currentMode==='dark' ? 'dark-mode-main' : 'main'">
             <div class="alert alert-danger" *ngIf="error">
                 <p>{{ error }}</p>
             </div>

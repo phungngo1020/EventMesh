@@ -11,7 +11,7 @@ import { AuthService } from '../login/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  currentMode = 'dark';
+  currentMode = 'light';
 
   constructor(
     private dataStorageService: DataStorageService,
@@ -27,6 +27,5 @@ export class HomeComponent implements OnInit {
       this.currentMode = resMode[0].mode;
       console.log(this.currentMode);
     });
-    
   }
 }

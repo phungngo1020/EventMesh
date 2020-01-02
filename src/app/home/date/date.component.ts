@@ -16,7 +16,7 @@ export class DateComponent implements OnInit {
     this.onFetchMode();
   }
 
-  currentMode: string = 'dark';
+  currentMode: string;
   onFetchMode() {
     this.dataStorageService.fetchMode().subscribe(resMode => {
       this.currentMode = resMode[0].mode;

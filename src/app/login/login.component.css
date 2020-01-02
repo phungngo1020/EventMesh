@@ -13,6 +13,14 @@
     height: 100vh;
     background-color: #6E8DBF;
 }
+.dark-mode-nav {
+    display: flex;
+    flex-direction: column;
+    
+    width: 20vw;
+    height: 100vh;
+    background-color: #282726;
+}
 .login {
     width: 80vw;
     height: 100vh;
@@ -25,14 +33,18 @@
     height: 20vh;
 }
 
-.header{ 
+.header, .dark-mode-header{ 
     width: 80vw;
     height: 10vh;
     text-align: center;
     background-color: #EAB679;
 }
+.dark-mode-header {
+    background-color: #686661;
+    color: #E8E5DC;
+}
 
-.main {
+.main, .dark-mode-main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,6 +52,9 @@
     height: 90vh;
     background-color: #E2CFA5;
     padding: 5vh 0 0 0;
+}
+.dark-mode-main {
+    background-color: #474441;
 }
 .forms {
     display: flex;

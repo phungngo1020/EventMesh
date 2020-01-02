@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import {AuthService, AuthResponseData} from './auth.service';
 import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -15,9 +16,14 @@ export class LoginComponent implements OnInit {
   error: string = null;
   isAuthenticated = false;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(
+    private authService: AuthService, 
+    private router: Router,
+    private dataStorageService: DataStorageService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.onFetchMode();
+  }
 
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -53,6 +59,16 @@ export class LoginComponent implements OnInit {
     );
 
     form.reset();
+  }
+
+  currentMode = 'light';
+
+  onFetchMode() {
+    this.dataStorageService.fetchMode().subscribe(resMode => {
+      this.currentMode = resMode[0].mode;
+      console.log(this.currentMode);
+    });
+    
   }
 
 }

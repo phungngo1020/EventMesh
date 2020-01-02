@@ -109,7 +109,7 @@ export class MainComponent implements OnInit {
   }
 
 
-  currentMode: string = 'dark';
+  currentMode: string;
   onFetchMode() {
     if(this.authService.signedin === true) {
       this.dataStorageService.fetchMode().subscribe(resMode => {

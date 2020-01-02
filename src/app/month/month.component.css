@@ -2,7 +2,7 @@
     display: flex;
 }
 
-.nav {
+.nav, .dark-mode-nav {
     display: flex;
     flex-direction: column;
     width: 20vw;
@@ -10,11 +10,9 @@
     background-color: #6E8DBF;
     z-index: 2;
 }
-
-#month {
-    background-color: #E2CFA5;
+.dark-mode-nav {
+    background-color: #282726;
 }
-
 .month {
     width: 80vw;
     height: 100vh;
@@ -23,11 +21,15 @@
     align-items: center;
 }
 
-.header{ 
+.header, .dark-mode-header{ 
     width: 80vw;
     height: 10vh;
     text-align: center;
     background-color: #EAB679;
+}
+.dark-mode-header {
+    background-color: #686661;
+    color: #E8E5DC;
 }
 
 .main {
@@ -38,7 +40,9 @@
     height: 90vh;
     background-color: #E2CFA5;
 }
-
+.dark-mode-main {
+    background-color: #686661;
+}
 .row-0 {
     width: 100%;
     height: 4vh;
@@ -46,14 +50,21 @@
     flex-direction: row;
 }
 
-.day {
+.day, .dark-mode-day  {
     width: 11.5vw;
     height: 4vh;
     text-align: center;
     background-color: rgb(139, 160, 194);
 }
 .day:nth-child(odd) {
-    opacity: 95%;
+    opacity: 93%;
+}
+
+.dark-mode-day {
+    background-color: #282726;
+}
+.dark-mode-day:nth-child(odd) {
+    opacity: 93%;
 }
 
 .row {
@@ -64,9 +75,9 @@
 .box {
     width: 11.4vw;
     height: 12.2vh;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #9E9E9E;
 }
 
 .box:not(:last-child) {
-    border-right: 1px solid white;
+    border-right: 1px solid #9E9E9E;
 }
