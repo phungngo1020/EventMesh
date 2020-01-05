@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="nav" [className]="currentMode==='dark' ? 'dark-mode-nav' : 'nav'">
+    <div class="nav">
         <app-user></app-user>
         <div class="nav-right">
             <router-outlet></router-outlet>
@@ -8,11 +8,11 @@
         </div>
     </div>
     <div class="login">
-        <div class="header" [className]="currentMode==='dark' ? 'dark-mode-header' : 'header'">
+        <div class="header">
             <h4>Log In</h4>
         </div>
 
-        <div class="main" [className]="currentMode==='dark' ? 'dark-mode-main' : 'main'">
+        <div class="main">
             <div class="alert alert-danger" *ngIf="error">
                 <p>{{ error }}</p>
             </div>
