@@ -4,13 +4,13 @@
     width: 100vw;
     height: 100vh;
 }
-    
+
 .nav {
     display: flex;
     flex-direction: column;
     width: 20vw;
     height: 100vh;
-    background-image: url(../../../../Images/black-1.jpg);
+    /*background-image: url(../../../../Images/black-1.jpg);*/
     background-size: cover;
     z-index: 2;
 }
@@ -25,12 +25,12 @@
     flex-direction: column;
     background-color: #505050;
 }
-    
+
 .main-events {
     display: flex;
     flex-direction: row;
     color: grey;
-} 
+}
 
 @media screen and (max-width: 900px) {
     .container {

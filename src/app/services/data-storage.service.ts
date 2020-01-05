@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, take, exhaustMap } from 'rxjs/operators';
-import { Task } from './task.model';
-import { Event } from './event.model';
-import { City } from './city.model';
-import { AuthService } from '../login/auth.service';
+import { Task } from '../models/task.model';
+import { Event } from '../models/event.model';
+import { City } from '../models/city.model';
+import { AuthService } from './auth.service';
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService {
@@ -25,7 +25,14 @@ export class DataStorageService {
 
     username: string;
     createAndStoreTask(title: string, completed: boolean) {
-        const taskData: Task = {title: title, completed: completed};
+        const taskData: Task = {
+          id: "1",
+          status: "in progress",
+          createdDate: "created date",
+          dueDate: "due date",
+          title: title,
+          completed: completed
+        };
         this.added = true;
         return this.authService.user.pipe(take(1), exhaustMap(user => {
             this.username = user.email.substring(0, user.email.lastIndexOf("@"));
@@ -41,12 +48,12 @@ export class DataStorageService {
 
     fetchTasks() {
         return this.authService.user.pipe(
-            take(1), 
+            take(1),
             exhaustMap(user => {
                 this.username = user.email.substring(0, user.email.lastIndexOf("@"));
 
                 return this.http.get<{ [key: string]: Task }>(
-                    'https://eventmesh-1a5be.firebaseio.com/'+ this.username + '/tasks' +'.json?', 
+                    'https://eventmesh-1a5be.firebaseio.com/'+ this.username + '/tasks' +'.json?',
                 {
                     params: new HttpParams().set('auth', user.token)
                 }
@@ -63,6 +70,7 @@ export class DataStorageService {
         })
         );
     }
+
     deleteTask(id: string) {
         /*
         return this.http.delete('https://eventmesh-1a5be.firebaseio.com/'+ '/tasks' +'.json?');
@@ -80,7 +88,6 @@ export class DataStorageService {
         );
     }
 
-
     /****** EVENTS ******/
 
     /*
@@ -93,6 +100,7 @@ export class DataStorageService {
             )
     }
     */
+
     createAndStoreEvent(title) {
         this.added = true;
         return this.authService.user.pipe(take(1), exhaustMap(user => {
@@ -106,6 +114,7 @@ export class DataStorageService {
         })
         );
     }
+
     fetchEvents() {
         return this.authService.user.pipe(take(1), exhaustMap(user => {
             this.username = user.email.substring(0, user.email.lastIndexOf("@"));
@@ -117,13 +126,13 @@ export class DataStorageService {
             );
         }),
             map(responseData => {
-                
+
                 const eventsArray: Event[] = [];
                     for (const key in responseData) {
                         if (responseData.hasOwnProperty(key)) {
                             eventsArray.push({ ...responseData[key], id: key });
                         }
-                    } 
+                    }
                     return eventsArray;
             })
         );
@@ -176,7 +185,7 @@ export class DataStorageService {
                             cityArray.push({ ...responseData[key], id: key });
                         }
                     }
-                return cityArray; 
+                return cityArray;
             })
         );
     }

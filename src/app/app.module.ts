@@ -5,17 +5,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './login/user/user.component';
-import { WeatherComponent } from './home/weather/weather.component';
-import { DateComponent } from './home/date/date.component';
 import { HomeComponent } from './home/home.component';
 import { MonthComponent } from './month/month.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { MainComponent } from './home/main/main.component';
-import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { LoadingSpinnerComponent } from './tools/loading-spinner/loading-spinner.component';
 import { OptionsComponent } from './login/options/options.component';
-import { AuthInterceptorService } from './home/date/auth-interceptor.service';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { EventsComponent } from './events/events.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { WeekComponent } from './week/week.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,14 +27,14 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     UserComponent,
-    WeatherComponent,
-    DateComponent,
     HomeComponent,
     MonthComponent,
     LoginComponent,
-    MainComponent,
     LoadingSpinnerComponent,
     OptionsComponent,
+    EventsComponent,
+    TasksComponent,
+    WeekComponent
   ],
   imports: [
     BrowserModule,
@@ -45,8 +45,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     {
-      provide: HTTP_INTERCEPTORS, 
-      useClass: AuthInterceptorService, 
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
       multi: true
     }
   ],

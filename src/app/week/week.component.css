@@ -1,0 +1,75 @@
+.week {
+    width: 80vw;
+    height: 30vh;
+    display: flex;
+    /*background-color: #EAB679;*/
+}
+/*
+.dark-mode-week {
+    background-color: #686661;
+    color: #E8E5DC;
+}*/
+.current {
+    background-color: rgba(165, 164, 164, 0.892);
+}
+
+.weekday {
+    width: 11.4vw;
+    height: 30vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    color: #E8E5DC;
+}
+.day-title {
+    width: 11.4vw;
+    height: 4vh;
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.day-content {
+    width: 11.4vw;
+    height: 26vh;
+}
+.task-name {
+    margin: 0;
+    width: 11.4vw;
+    height: 25vh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.weekday:not(:last-child) {
+    border-right: 1px solid #E8E5DC;
+}
+
+
+@media screen and (max-width: 900px) {
+    .week {
+        width: 100vw;
+        font-size: 1.5vh;
+    }
+    .weekday {
+        width: 14.2vw;
+        height: 30vh;
+        text-align: center;
+    }
+    li {
+        width: 14.2vw;
+    }
+}
+
+#todaysEvent, #todaysTask {
+    width: 11.4vw;
+    height: 2vh;
+    font-size: 1.3vw;
+}
+#todaysEvent {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+#todaysTask {
+    background-color: rgba(255, 255, 255, 0.4);
+}

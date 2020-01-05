@@ -1,0 +1,42 @@
+<!--<app-events></app-events>-->
+<div class="events">
+        <div class="header-secondary" id="events-header">
+            <h5>EVENTS</h5>
+        </div>
+            <form #postForm1="ngForm" (ngSubmit)="onCreateEvent(postForm1.value);">
+                <div id="inputs">
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            id="title1"
+                            required
+                            ngModel
+                            name="title1"
+                            placeholder="add an event.."
+                            onfocus="this.value='', this.placeholder=''"
+                            onblur="this.placeholder = 'add an event..'"
+                            autocomplete="off"
+                        />
+                    </div>
+                    <button
+                        id="eventsButton"
+                        type ="submit"
+                        [disabled]="!postForm1.valid"
+                    >Add</button>
+                </div>
+            </form>
+        <div class="list">
+            <ul class="event-li" *ngIf="loadedEvents.length >= 1">
+                <li id="li" *ngFor="let event of loadedEvents">
+                    <p>{{ event.title1 }}</p>
+                    <button id="liButton" (click)="onClearEvents(event)">&#10005;</button>
+                </li>
+            </ul>
+            <!--
+            <div class="alert alert-danger" *ngIf="error">
+                <p>Couldn't load events</p>
+            </div>
+            -->
+        </div>
+    </div>
+<!--End-EVENTS-->

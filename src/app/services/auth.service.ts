@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { catchError, take, tap, exhaustMap } from 'rxjs/operators';
 import { throwError, BehaviorSubject } from 'rxjs';
-import { User } from './user.model';
+import { User } from '../models/user.model';
 import { Router } from '@angular/router';
 import { tokenName } from '@angular/compiler';
 
@@ -17,13 +17,13 @@ export interface AuthResponseData {
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
-    user = new BehaviorSubject<User>(null); 
+    user = new BehaviorSubject<User>(null);
     username: string;
     signedin = false;
-    
+
 
     constructor(
-        private http: HttpClient, 
+        private http: HttpClient,
         private router: Router) {}
 
     signup(email: string, password: string) {
@@ -34,12 +34,12 @@ export class AuthService {
                 password: password,
                 returnSecureToken: true
             }
-        ).pipe(catchError(this.handleError), 
+        ).pipe(catchError(this.handleError),
         tap(resData => {   // +resData.expiresIn converts string to number
             this.handleAuthentication(
-                resData.email, 
+                resData.email,
                 resData.localId,
-                resData.idToken, 
+                resData.idToken,
                 +resData.expiresIn
             );
             this.signedin = true;
@@ -58,9 +58,9 @@ export class AuthService {
         ).pipe(catchError(this.handleError),
         tap(resData => {   // +resData.expiresIn converts string to number
             this.handleAuthentication(
-                resData.email, 
+                resData.email,
                 resData.localId,
-                resData.idToken, 
+                resData.idToken,
                 +resData.expiresIn
             );
             this.signedin = true;
@@ -79,9 +79,9 @@ export class AuthService {
             return;
         }
         const loadedUser = new User(
-            userData.email, 
-            userData.id, 
-            userData._token, 
+            userData.email,
+            userData.id,
+            userData._token,
             new Date(userData._tokenExpirationDate)
         );
         if(loadedUser.token) {
@@ -95,9 +95,9 @@ export class AuthService {
     }
 
     private handleAuthentication(
-        email: string, 
+        email: string,
         userId: string,
-        token: string, 
+        token: string,
         expiresIn: number
     ) {
         const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);

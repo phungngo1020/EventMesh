@@ -1,0 +1,242 @@
+<div class="main-events">
+    <!--<app-events></app-events>-->
+    <div class="events">
+            <div class="header-secondary" id="events-header">
+                <h5>EVENTS</h5>
+            </div>
+                <form #postForm1="ngForm" (ngSubmit)="onCreateEvent(postForm1.value);">
+                    <div id="inputs">
+                        <div class="form-group">
+                            <input
+                                type="text"
+                                id="title1"
+                                required
+                                ngModel
+                                name="title1"
+                                placeholder="add an event.."
+                                onfocus="this.value='', this.placeholder=''"
+                                onblur="this.placeholder = 'add an event..'"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <button
+                            id="eventsButton"
+                            type ="submit"
+                            [disabled]="!postForm1.valid"
+                        >Add</button>
+                    </div>
+                </form>
+            <div class="list">
+                <ul class="event-li" *ngIf="loadedEvents.length >= 1">
+                    <li id="li" *ngFor="let event of loadedEvents">
+                        <p>{{ event.title1 }}</p>
+                        <button id="liButton" (click)="onClearEvents(event)">&#10005;</button>
+                    </li>
+                </ul>
+                <!--
+                <div class="alert alert-danger" *ngIf="error">
+                    <p>Couldn't load events</p>
+                </div>
+                -->
+            </div>
+        </div>
+    <!--End-EVENTS-->
+
+
+    <!--<app-tasks></app-tasks>-->
+        <div class="tasks">
+            <div class="header-secondary">
+                <h5>TASKS</h5>
+            </div>
+                <form #postForm="ngForm" (ngSubmit)="onCreateTask(postForm.value);">
+                    <div id="inputs">
+                        <div class="form-group">
+                            <input
+                                type="text"
+                                id="title"
+                                required
+                                ngModel
+                                name="title"
+                                placeholder="add a task.."
+                                onfocus="this.value='', this.placeholder=''"
+                                onblur="this.placeholder = 'add a task..'"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <button
+                            id="tasksButton"
+                            type="submit"
+                            [disabled]="!postForm.valid"
+                        >Add</button>
+                    </div>
+                </form>
+            <div class="list">
+                <ul class="task-li" *ngIf="loadedTasks.length >= 1">
+                    <li id="li" *ngFor="let task of loadedTasks">
+                        <p>{{ task.title }}</p>
+                        <button id="liButton" (click)="onClearTasks(task)">&#10005;</button>
+                    </li>
+                </ul>
+                <!--
+                <div class="alert alert-danger" *ngIf="error">
+                    <p>Couldn't load tasks</p>
+                </div>
+                -->
+            </div>
+        </div>
+        <!--End TASKS-->
+</div>
+
+
+
+<!--<app-week></app-week>-->
+    <div class="week">
+        <!--Sunday-->
+        <div class="weekday sunday current" *ngIf="this.weekday === 0" [className]="currentMode==='dark' ? 'weekday dark-mode-current' : 'weekday current'">
+            <div class="day-title">
+                Sunday
+            </div>
+            <ul class="task-name">
+                    <li id="todaysEvent" *ngFor="let event of loadedEvents">
+                        <p>{{ event.title1 }}</p>
+                        <button id="liButton" (click)="onClearEvents(event)">&#10005;</button>
+                    </li>
+                    <li id="todaysTask" *ngFor="let task of loadedTasks">
+                        <p>{{ task.title }}</p>
+                        <button id="liButton" (click)="onClearTasks(task)">&#10005;</button>
+                    </li>
+                </ul>
+        </div>
+        <div class="weekday sunday" *ngIf="this.weekday !== 0">
+            <div class="day-title">
+                Sunday
+            </div>
+        </div>
+        <!--Monday-->
+        <div class="weekday monday current" *ngIf="this.weekday === 1" >
+            <div class="day-title">
+                Monday
+            </div>
+            <ul class="task-name">
+                <li id="todaysEvent" *ngFor="let event of loadedEvents">
+                    <p>{{ event.title1 }}</p>
+                    <button id="liButton" (click)="onClearEvents(event)">&#10005;</button>
+                </li>
+                <li id="todaysTask" *ngFor="let task of loadedTasks">
+                    <p>{{ task.title }}</p>
+                    <button id="liButton" (click)="onClearTasks(task)">&#10005;</button>
+                </li>
+            </ul>
+        </div>
+        <div class="weekday monday" *ngIf="this.weekday !== 1">
+            <div class="day-title">
+                Monday
+            </div>
+        </div>
+        <!--Tuesday-->
+        <div class="weekday tuesday current" *ngIf="this.weekday === 2" >
+            <div class="day-title">
+                Tuesday
+            </div>
+            <ul class="task-name">
+                    <li *ngFor="let event of loadedEvents">
+                        <p>{{ event.title1 }}</p>
+                        <button id="liButton" (click)="onClearEvents(event)">&#10005;</button>
+                    </li>
+                    <li *ngFor="let task of loadedTasks">
+                        <p>{{ task.title }}</p>
+                        <button id="liButton" (click)="onClearTasks(task)">&#10005;</button>
+                    </li>
+                </ul>
+        </div>
+        <div class="weekday tuesday" *ngIf="this.weekday !== 2">
+            <div class="day-title">
+                Tuesday
+            </div>
+        </div>
+        <!--Wednesday-->
+        <div class="weekday wednesday current" *ngIf="this.weekday === 3" >
+            <div class="day-title">
+                Wednesday
+            </div>
+            <ul class="task-name">
+                <li *ngFor="let event of loadedEvents">
+                    <p>{{ event.title1 }}</p>
+                    <button id="liButton" (click)="onClearEvents(event)">&#10005;</button>
+                </li>
+                <li *ngFor="let task of loadedTasks">
+                    <p>{{ task.title }}</p>
+                    <button id="liButton" (click)="onClearTasks(task)">&#10005;</button>
+                </li>
+            </ul>
+        </div>
+        <div class="weekday wednesday" *ngIf="this.weekday !== 3">
+            <div class="day-title">
+                Wednesday
+            </div>
+        </div>
+        <!--Thursday-->
+        <div class="weekday thursday current" *ngIf="this.weekday === 4" >
+            <div class="day-title">
+                Thursday
+            </div>
+            <ul class="task-name">
+                <li *ngFor="let event of loadedEvents">
+                    <p>{{ event.title1 }}</p>
+                    <button id="liButton" (click)="onClearEvents(event)">&#10005;</button>
+                </li>
+                <li *ngFor="let task of loadedTasks">
+                    <p>{{ task.title }}</p>
+                    <button id="liButton" (click)="onClearTasks(task)">&#10005;</button>
+                </li>
+            </ul>
+        </div>
+        <div class="weekday thursday" *ngIf="this.weekday !== 4">
+            <div class="day-title">
+                Thursday
+            </div>
+        </div>
+        <!--Friday-->
+        <div class="weekday friday current" *ngIf="this.weekday === 5" >
+            <div class="day-title">
+                Friday
+            </div>
+            <ul class="task-name">
+                <li *ngFor="let event of loadedEvents">
+                    <p>{{ event.title1 }}</p>
+                    <button id="liButton" (click)="onClearEvents(event)">&#10005;</button>
+                </li>
+                <li *ngFor="let task of loadedTasks">
+                    <p>{{ task.title }}</p>
+                    <button id="liButton" (click)="onClearTasks(task)">&#10005;</button>
+                </li>
+            </ul>
+        </div>
+        <div class="weekday friday" *ngIf="this.weekday !== 5">
+            <div class="day-title">
+                Friday
+            </div>
+        </div>
+        <!--Saturday-->
+        <div class="weekday saturday current" *ngIf="this.weekday === 6" >
+            <div class="day-title">
+                Saturday
+            </div>
+            <ul class="task-name">
+                <li *ngFor="let event of loadedEvents">
+                    <p>{{ event.title1 }}</p>
+                    <button id="liButton" (click)="onClearEvents(event)">&#10005;</button>
+                </li>
+                <li *ngFor="let task of loadedTasks">
+                    <p>{{ task.title }}</p>
+                    <button id="liButton" (click)="onClearTasks(task)">&#10005;</button>
+                </li>
+            </ul>
+        </div>
+        <div class="weekday sunday" *ngIf="this.weekday !== 6">
+            <div class="day-title">
+                Saturday
+            </div>
+        </div>
+    </div>
+<!--End WEEK-->

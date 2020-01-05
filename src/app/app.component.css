@@ -1,0 +1,169 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height: 100vh;
+    /*background-image: url(../../../../Images/black-1.jpg);*/
+    background-size: cover;
+    z-index: 2;
+}
+
+
+#home {
+    background-color: #E2CFA5;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    background-color: #505050;
+}
+
+.main-events {
+    display: flex;
+    flex-direction: row;
+    color: grey;
+}
+
+.weather {
+    width: 20vw;
+    height: 50vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #E8E5DC;
+}
+#weatherIcon {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+input {
+    margin-top: 2vh;
+    outline: none;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #E8E5DC;
+    color: #E8E5DC;
+}
+button {
+    background-color: #E8E5DC;
+    color: grey;
+}
+
+@media screen and (max-width: 900px) {
+    .weather {
+        width: 70vw;
+        height: 7vh;
+        font-size: 1.5vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+
+.options {
+  width: 20vw;
+  height: 20vh;
+}
+
+.primary-button, .primary-button:hover {
+  width: 20vw;
+  height: 5vh;
+  background-color: #E8E5DC;
+  color: grey;
+}
+
+.primary-button:not(:last-child) {
+  border-bottom: 1px solid grey;
+}
+
+.main-date {
+  width: 80vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #E8E5DC;
+}
+
+.user {
+  display: flex;
+  width: 20vw;
+  height: 10vh;
+}
+.picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+}
+#avatar {
+  height: 7vh;
+  width: 7vh;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.username {
+  font-size: 2vh;
+  display: flex;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .user {
+    width: 30vw;
+  }
+  .main-date {
+      width: 100vw;
+      height: 5vh;
+  }
+  .options {
+    display: flex;
+    width: 70vw;
+    height: 3vh;
+  }
+  .primary-button, .primary-button:hover {
+    width: 22vw;
+    height: 3vh;
+    font-size: 1.1vh;
+  }
+  .primary-button:not(:last-child) {
+    border-bottom: none;
+    border-right: 1px solid grey;
+  }
+  .weather {
+    width: 70vw;
+    height: 7vh;
+    font-size: 1.5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .container {
+      display: flex;
+      flex-direction: column;
+  }
+  .nav {
+      display: flex;
+      flex-direction: row;
+      width: 100vw;
+      height: 10vh;
+  }
+  .nav-right {
+      width: 70vw;
+      display: flex;
+      flex-direction: column;
+  }
+}
