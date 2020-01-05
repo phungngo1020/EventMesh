@@ -18,7 +18,7 @@
         <a routerLink="/month"><button class="primary-button">Month</button></a>
       </div>
       <div class="weather">
-          <div class="city">  
+          <div class="city">
               <form #postForm="ngForm" (ngSubmit)="fetchWeather(postForm.value);">
                   <input
                       #userCity
@@ -29,6 +29,7 @@
                       onfocus="this.value='', this.placeholder=''"
                       onblur="this.placeholder = 'get weather in... city'"
                       autocomplete="off"
+                      style="color:black"
                   />
                   <button type = "submit">Enter</button>
               </form>

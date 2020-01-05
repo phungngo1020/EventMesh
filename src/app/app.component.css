@@ -47,7 +47,6 @@
     object-fit: cover;
 }
 input {
-    margin-top: 2vh;
     outline: none;
     background: transparent;
     border: none;
@@ -56,7 +55,6 @@ input {
 }
 button {
     background-color: #E8E5DC;
-    color: grey;
 }
 
 @media screen and (max-width: 900px) {
