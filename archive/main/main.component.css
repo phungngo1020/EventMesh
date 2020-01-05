@@ -8,7 +8,7 @@ input:focus {
     color: #E8E5DC;
     box-shadow: 5px 10px 40px rgba(47, 42, 42, 0.7);
     z-index: 2;
-} 
+}
 .header-secondary {
     width: 32vw;
     height: 4vh;
@@ -38,7 +38,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: space-between;
-} 
+}
 p {
     margin-left: 5px;
     font-size: 1.4vh;
@@ -114,7 +114,7 @@ form {
         width: 50vw;
         height: 60vh;
     }
-    
+
 }
 
 #start-time, #end-time {
@@ -154,11 +154,11 @@ form {
         width: 40vw;
         height: 3vh;
     }
-    
+
     #tasksButton {
         height: 3;
     }
-    
+
     #title {
         height: 2.5vh;
         width: 20vw;
@@ -169,24 +169,24 @@ form {
         font-size: 2vh;
         color: #5E545C;
     }
-    
+
     .task-li {
         width: 70%;
         font-size: 1vw;
         color: black;
     }
-    
+
     .functions {
         width: 30%;
         display: flex;
         justify-content: space-around;
     }
-    
+
     #liButton {
         background: transparent;
         color: grey;
     }
-    
+
     @media screen and (max-width: 900px) {
         .tasks {
             width: 50vw;

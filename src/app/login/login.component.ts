@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {AuthService, AuthResponseData} from './auth.service';
+import {AuthService, AuthResponseData} from '../services/auth.service';
 import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { DataStorageService } from '../shared/data-storage.service';
-import { WeatherService } from './weather.service';
+import { DataStorageService } from '../services/data-storage.service';
+import { NOAAWeatherService } from '../services/noaa-weather.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { stringify } from '@angular/compiler/src/util';
 import { map, take, exhaustMap } from 'rxjs/operators';
@@ -21,10 +21,10 @@ export class LoginComponent implements OnInit {
   isAuthenticated = false;
 
   constructor(
-    private authService: AuthService, 
+    private authService: AuthService,
     private router: Router,
     private dataStorageService: DataStorageService,
-    private weatherService: WeatherService,
+    private noaaWeatherService: NOAAWeatherService,
     private http: HttpClient
     ) { }
 

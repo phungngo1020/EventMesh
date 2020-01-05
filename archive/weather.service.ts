@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, take, exhaustMap } from 'rxjs/operators';
-import { AuthService } from '../login/auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Injectable({providedIn: 'root'})
 export class WeatherService {
     added = false;
 
     constructor(
-        private http: HttpClient, 
+        private http: HttpClient,
         private authService: AuthService) {}
-        
+
         /*
         fetchCity() {
             return this.authService.user.pipe(take(1), exhaustMap(user => {
@@ -31,7 +31,7 @@ export class WeatherService {
                         return modeArray;
                 })
             );
-    
+
         }
         updateCity(id: string, title: string) {
             const mode: City = {title: title};

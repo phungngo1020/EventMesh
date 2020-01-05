@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AuthService } from '../auth.service';
-import { DataStorageService } from '../../shared/data-storage.service';
+import { AuthService } from '../../services/auth.service';
+import { DataStorageService } from '../../services/data-storage.service';
 import { Router } from '@angular/router';
 
 @Component({

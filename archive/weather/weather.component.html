@@ -1,15 +1,15 @@
 <div class="weather">
     <div class="city">
-        
+
         <form #postForm="ngForm" (ngSubmit)="fetchWeather(postForm.value);">
-            <input 
+            <input
                 #userCity
-                type="text" 
-                ngModel 
+                type="text"
+                ngModel
                 name="userCity"
                 placeholder="get weather in... city"
-                onfocus="this.value='', this.placeholder=''" 
-                onblur="this.placeholder = 'get weather in... city'" 
+                onfocus="this.value='', this.placeholder=''"
+                onblur="this.placeholder = 'get weather in... city'"
                 autocomplete="off"
             />
             <button type = "submit">Enter</button>

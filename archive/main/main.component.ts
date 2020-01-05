@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
   error = null;
 
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
     private dataStorageService: DataStorageService,
     private authService: AuthService) { }
 
@@ -38,7 +38,7 @@ export class MainComponent implements OnInit {
     });
   }
 
-  
+
   onCreateTask(taskData: Task) {
     console.log(this.authService.signedin);
     if(this.authService.signedin === true) {
@@ -67,12 +67,12 @@ export class MainComponent implements OnInit {
     console.log("deleting "+ task.id);
     this.dataStorageService.deleteTask(task.id).subscribe(() => {
       this.onFetchTasks();
-    }); 
+    });
   }
   today: number = Date.now();
   weekday = (new Date()).getDay();
 
-  
+
   onCreateEvent(eventTitle) {
     console.log("clicked");
     console.log(eventTitle);
@@ -103,7 +103,7 @@ export class MainComponent implements OnInit {
     console.log("deleting "+ event.id);
     this.dataStorageService.deleteEvent(event.id).subscribe(() => {
       this.onFetchEvents();
-    }); 
+    });
   }
 
 

@@ -1,0 +1,43 @@
+<!--<app-tasks></app-tasks>-->
+  <div class="tasks">
+      <div class="header-secondary">
+          <h5>TASKS</h5>
+      </div>
+          <form #postForm="ngForm" (ngSubmit)="onCreateTask(postForm.value);">
+              <div id="inputs">
+                  <div class="form-group">
+                      <input
+                          type="text"
+                          id="title"
+                          required
+                          ngModel
+                          name="title"
+                          placeholder="add a task.."
+                          onfocus="this.value='', this.placeholder=''"
+                          onblur="this.placeholder = 'add a task..'"
+                          autocomplete="off"
+                          style="color: black"
+                      />
+                  </div>
+                  <button
+                      id="tasksButton"
+                      type="submit"
+                      [disabled]="!postForm.valid"
+                  >Add</button>
+              </div>
+          </form>
+      <div class="list">
+          <ul class="task-li" *ngIf="loadedTasks.length >= 1">
+              <li id="li" *ngFor="let task of loadedTasks">
+                  <p>{{ task.title }}</p>
+                  <button id="liButton" (click)="onClearTasks(task)">&#10005;</button>
+              </li>
+          </ul>
+          <!--
+          <div class="alert alert-danger" *ngIf="error">
+              <p>Couldn't load tasks</p>
+          </div>
+          -->
+      </div>
+  </div>
+  <!--End TASKS-->

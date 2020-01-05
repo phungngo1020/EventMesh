@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, ɵSWITCH_COMPILE_DIRECTIVE__POST_R3__ } from '@angular/core';
-import { DataStorageService } from '../shared/data-storage.service';
+import { DataStorageService } from '../services/data-storage.service';
 import { Router } from '@angular/router';
-import { AuthService } from '../login/auth.service';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({

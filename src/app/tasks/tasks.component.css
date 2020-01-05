@@ -1,0 +1,114 @@
+.tasks {
+    width: 40vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #A5A4A4;
+}
+
+#inputs {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 40vw;
+    height: 3vh;
+}
+.list {
+    height: 52vh;
+    width: 40vw;
+}
+form {
+    margin: 0;
+    width: 40vw;
+    height: 3vh;
+}
+
+#tasksButton {
+    height: 3;
+}
+
+#title {
+    height: 2.5vh;
+    width: 20vw;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid grey;
+    text-align: left;
+    font-size: 2vh;
+    color: #5E545C;
+}
+
+.task-li {
+    width: 70%;
+    font-size: 1vw;
+    color: black;
+}
+
+.functions {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#liButton {
+    background: transparent;
+    color: grey;
+}
+
+@media screen and (max-width: 900px) {
+    .tasks {
+        width: 50vw;
+        height: 60vh;
+    }
+}
+
+input:focus {
+    border-bottom: 1px solid white;
+}
+.main-events {
+    display: flex;
+    flex-direction: row;
+    background-color: #414141;
+    color: #E8E5DC;
+    box-shadow: 5px 10px 40px rgba(47, 42, 42, 0.7);
+    z-index: 2;
+}
+.header-secondary {
+    width: 32vw;
+    height: 4vh;
+    margin: auto;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    display: flex;
+    justify-content: center;
+}
+#li {
+    margin-left: 2vw;
+    width: 30vw;
+    height: 2vh;
+    font-size: 70%;
+    padding: 0;
+    text-align: left;
+    padding-left: 6px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+#li:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+li {
+    padding: 0;
+    width: 11.4vw;
+    height: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+p {
+    margin-left: 5px;
+    font-size: 1.4vh;
+}
+#liButton {
+    width: 20%;
+    height: 100%;
+}
