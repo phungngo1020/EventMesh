@@ -8,20 +8,13 @@
 .nav {
     display: flex;
     flex-direction: column;
-    
     width: 20vw;
     height: 100vh;
-    background-color: #6E8DBF;
+    background-image: url(../../../../Images/black-1.jpg);
+    background-size: cover;
+    z-index: 2;
 }
-    
-.dark-mode-nav {
-    display: flex;
-    flex-direction: column;
-    
-    width: 20vw;
-    height: 100vh;
-    background-color: #282726;
-}
+
 
 #home {
     background-color: #E2CFA5;
@@ -30,6 +23,7 @@
 .main {
     display: flex;
     flex-direction: column;
+    background-color: #505050;
 }
     
 .main-events {

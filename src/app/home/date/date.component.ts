@@ -13,16 +13,6 @@ export class DateComponent implements OnInit {
   constructor(private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
-    this.onFetchMode();
   }
 
-  currentMode: string;
-  onFetchMode() {
-    this.dataStorageService.fetchMode().subscribe(resMode => {
-      this.currentMode = resMode[0].mode;
-      console.log(this.currentMode);
-    }, error => {
-      this.error = error.message;
-    });
-  }
 }

@@ -1,8 +1,23 @@
+input:focus {
+    border-bottom: 1px solid white;
+}
 .main-events {
     display: flex;
     flex-direction: row;
-    color: grey;
+    background-color: #414141;
+    color: #E8E5DC;
+    box-shadow: 5px 10px 40px rgba(47, 42, 42, 0.7);
+    z-index: 2;
 } 
+.header-secondary {
+    width: 32vw;
+    height: 4vh;
+    margin: auto;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    display: flex;
+    justify-content: center;
+}
 #li {
     margin-left: 2vw;
     width: 30vw;
@@ -35,26 +50,13 @@ p {
 
 /*********************EVENTS**********************/
 .events {
-    background-color: #E2CFA5;
     width: 40vw;
     height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
-.dark-mode-events {
-    background-color: #474441;
-    width: 40vw;
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-.header-secondary {
-    display: flex;
-    width: 40vw;
-    height: 5vh;
-}
+
 #inputs {
     display: flex;
     align-items: flex-start;
@@ -127,22 +129,15 @@ form {
 
 
 /*********************TASKS**********************/
-    .tasks, .dark-mode-tasks {
-        background-color: #E8E5DC;
+    .tasks {
         width: 40vw;
         height: 60vh;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        background-color: #A5A4A4;
     }
-    .dark-mode-tasks {
-        background-color: #383735;
-    }
-    .header-secondary {
-        display: flex;
-        width: 40vw;
-        height: 5vh;
-    }
+
     #inputs {
         display: flex;
         align-items: flex-start;
@@ -202,28 +197,28 @@ form {
 
 
 /*********************WEEK**********************/
-.week, .dark-mode-week {
+.week {
     width: 80vw;
     height: 30vh;
     display: flex;
-    background-color: #EAB679;
+    /*background-color: #EAB679;*/
 }
+/*
 .dark-mode-week {
     background-color: #686661;
     color: #E8E5DC;
-}
+}*/
 .current {
-    background-color: rgb(237, 198, 153);
+    background-color: rgba(165, 164, 164, 0.892);
 }
-.dark-mode-current {
-    background-color: #72716d;
-}
+
 .weekday {
     width: 11.4vw;
     height: 30vh;
     text-align: center;
     display: flex;
     flex-direction: column;
+    color: #E8E5DC;
 }
 .day-title {
     width: 11.4vw;

@@ -11,16 +11,5 @@ export class MonthComponent implements OnInit {
   constructor(private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
-    this.onFetchMode();
-  }
-
-  currentMode = 'light';
-
-  onFetchMode() {
-    this.dataStorageService.fetchMode().subscribe(resMode => {
-      this.currentMode = resMode[0].mode;
-      console.log(this.currentMode);
-    });
-    
   }
 }

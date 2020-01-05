@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy, ɵSWITCH_COMPILE_DIRECTIVE__POST_R3__ } from '@angular/core';
 import { DataStorageService } from '../shared/data-storage.service';
-import { Mode } from '../shared/mode.model';
 import { Router } from '@angular/router';
 import { AuthService } from '../login/auth.service';
 
@@ -19,13 +18,5 @@ export class HomeComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit() {
-    this.onFetchMode();
-  }
-
-  onFetchMode() {
-    this.dataStorageService.fetchMode().subscribe(resMode => {
-      this.currentMode = resMode[0].mode;
-      console.log(this.currentMode);
-    });
   }
 }

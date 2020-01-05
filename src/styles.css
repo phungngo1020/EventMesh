@@ -22,7 +22,7 @@ button, button:hover {
     outline: none;
 }
 button:hover {
-    opacity: 80%;
+    opacity: 90%;
 }
 button:focus {
     outline: 0;
@@ -67,13 +67,6 @@ ul {
     font-size: 1vw;
 }   
 
-.header-secondary {
-    width: 40vw;
-    height: 4vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .inputs {
     width: 40vw;

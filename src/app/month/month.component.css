@@ -2,17 +2,16 @@
     display: flex;
 }
 
-.nav, .dark-mode-nav {
+.nav {
     display: flex;
     flex-direction: column;
     width: 20vw;
     height: 100vh;
-    background-color: #6E8DBF;
+    background-image: url(../../../../Images/black-1.jpg);
+    background-size: cover;
     z-index: 2;
 }
-.dark-mode-nav {
-    background-color: #282726;
-}
+
 .month {
     width: 80vw;
     height: 100vh;
@@ -21,14 +20,11 @@
     align-items: center;
 }
 
-.header, .dark-mode-header{ 
+.header{ 
     width: 80vw;
     height: 10vh;
     text-align: center;
-    background-color: #EAB679;
-}
-.dark-mode-header {
-    background-color: #686661;
+    background-color: #505050;
     color: #E8E5DC;
 }
 
@@ -38,7 +34,7 @@
     align-items: center;
     width: 80vw;
     height: 90vh;
-    background-color: #E2CFA5;
+    background-color: #414141;
 }
 .dark-mode-main {
     background-color: #686661;
@@ -54,16 +50,9 @@
     width: 11.5vw;
     height: 4vh;
     text-align: center;
-    background-color: rgb(139, 160, 194);
+    background-color: #A5A4A4;
 }
 .day:nth-child(odd) {
-    opacity: 93%;
-}
-
-.dark-mode-day {
-    background-color: #282726;
-}
-.dark-mode-day:nth-child(odd) {
     opacity: 93%;
 }
 
@@ -75,9 +64,9 @@
 .box {
     width: 11.4vw;
     height: 12.2vh;
-    border-bottom: 1px solid #9E9E9E;
+    border-bottom: 1px solid #A5A4A4;
 }
 
 .box:not(:last-child) {
-    border-right: 1px solid #9E9E9E;
+    border-right: 1px solid #A5A4A4;
 }

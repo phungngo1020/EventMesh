@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, take, exhaustMap } from 'rxjs/operators';
 import { Task } from './task.model';
 import { Event } from './event.model';
-import { Mode } from './mode.model';
+import { City } from './city.model';
 import { AuthService } from '../login/auth.service';
 
 @Injectable({providedIn: 'root'})
@@ -23,84 +23,44 @@ export class DataStorageService {
             );
     }*/
 
+    username: string;
     createAndStoreTask(title: string, completed: boolean) {
         const taskData: Task = {title: title, completed: completed};
         this.added = true;
         return this.authService.user.pipe(take(1), exhaustMap(user => {
+            this.username = user.email.substring(0, user.email.lastIndexOf("@"));
             return this.http
             .post<{ name: string }>(
-                'https://eventmesh-1a5be.firebaseio.com/'+ user.id + '/tasks' +'.json?', taskData, {
+                'https://eventmesh-1a5be.firebaseio.com/'+ this.username + '/tasks' +'.json?', taskData, {
                 params: new HttpParams().set('auth', user.token)
             }
             );
         })
         );
     }
-    createAndStoreMode(title) {
-        const mode: Mode = {mode: title};
-        return this.authService.user.pipe(take(1), exhaustMap(user => {
-            return this.http
-            .post<{ name: string }>(
-                'https://eventmesh-1a5be.firebaseio.com/'+ user.id + '/mode' +'.json?', mode, {
-                params: new HttpParams().set('auth', user.token)
-            }
-            );
-        })
-        );
-    }
-    fetchMode() {
-        return this.authService.user.pipe(take(1), exhaustMap(user => {
-            return this.http
-            .get<{ [key: string]: Mode}>(
-                'https://eventmesh-1a5be.firebaseio.com/'+ user.id + '/mode' +'.json?', {
-                params: new HttpParams().set('auth', user.token)
-            }
-            );
-        }),
-            map(responseData => {
-                const modeArray: Mode[] = [];
-                    for (const key in responseData) {
-                        if (responseData.hasOwnProperty(key)) {
-                            modeArray.push({ ...responseData[key], id: key });
-                        }
-                    }
-                    return modeArray;
-            })
-        );
-
-    }
-    updateMode(id: string, title: string) {
-        const mode: Mode = {mode: title};
-        return this.authService.user.pipe(take(1), exhaustMap(user => {
-            return this.http
-            .put<{ name: string }>(
-                'https://eventmesh-1a5be.firebaseio.com/'+ user.id + '/mode/' + id +'.json?', mode, {
-                params: new HttpParams().set('auth', user.token)
-            }
-            );
-        })
-        );
-    }
-
 
     fetchTasks() {
-        return this.authService.user.pipe(take(1), exhaustMap(user => {
-            return this.http
-            .get<{ [key: string]: Task }>(
-            'https://eventmesh-1a5be.firebaseio.com/'+ user.id + '/tasks' +'.json?', {
-                params: new HttpParams().set('auth', user.token)
-            }
+        return this.authService.user.pipe(
+            take(1), 
+            exhaustMap(user => {
+                this.username = user.email.substring(0, user.email.lastIndexOf("@"));
+
+                return this.http.get<{ [key: string]: Task }>(
+                    'https://eventmesh-1a5be.firebaseio.com/'+ this.username + '/tasks' +'.json?', 
+                {
+                    params: new HttpParams().set('auth', user.token)
+                }
             );
         }),
-            map(responseData => {
-                const tasksArray: Task[] = [];
-                for (const key in responseData) {
-                    if (responseData.hasOwnProperty(key)) {
-                        tasksArray.push({ ...responseData[key], id: key });
-                    }
+        map(responseData => {
+            const tasksArray: Task[] = [];
+            for (const key in responseData) {
+                if (responseData.hasOwnProperty(key)) {
+                    tasksArray.push({ ...responseData[key], id: key });
                 }
-                return tasksArray;
-            })
+            }
+            return tasksArray;
+        })
         );
     }
     deleteTask(id: string) {
@@ -108,9 +68,11 @@ export class DataStorageService {
         return this.http.delete('https://eventmesh-1a5be.firebaseio.com/'+ '/tasks' +'.json?');
         */
         return this.authService.user.pipe(take(1), exhaustMap(user => {
+            this.username = user.email.substring(0, user.email.lastIndexOf("@"));
+
             return this.http
             .delete(
-            'https://eventmesh-1a5be.firebaseio.com/'+ user.id + '/tasks/' + id + '.json?', {
+            'https://eventmesh-1a5be.firebaseio.com/'+ this.username + '/tasks/' + id + '.json?', {
                 params: new HttpParams().set('auth', user.token)
             }
             );
@@ -134,9 +96,10 @@ export class DataStorageService {
     createAndStoreEvent(title) {
         this.added = true;
         return this.authService.user.pipe(take(1), exhaustMap(user => {
+            this.username = user.email.substring(0, user.email.lastIndexOf("@"));
             return this.http
             .post<{ name: string }>(
-                'https://eventmesh-1a5be.firebaseio.com/'+ user.id + '/events' +'.json?', title, {
+                'https://eventmesh-1a5be.firebaseio.com/'+ this.username + '/events' +'.json?', title, {
                 params: new HttpParams().set('auth', user.token)
             }
             );
@@ -145,37 +108,80 @@ export class DataStorageService {
     }
     fetchEvents() {
         return this.authService.user.pipe(take(1), exhaustMap(user => {
+            this.username = user.email.substring(0, user.email.lastIndexOf("@"));
             return this.http
             .get<{ [key: string]: Event}>(
-                'https://eventmesh-1a5be.firebaseio.com/'+ user.id + '/events' +'.json?', {
+                'https://eventmesh-1a5be.firebaseio.com/'+ this.username + '/events' +'.json?', {
                 params: new HttpParams().set('auth', user.token)
             }
             );
         }),
             map(responseData => {
+                
                 const eventsArray: Event[] = [];
                     for (const key in responseData) {
                         if (responseData.hasOwnProperty(key)) {
                             eventsArray.push({ ...responseData[key], id: key });
                         }
-                    }
+                    } 
                     return eventsArray;
             })
         );
-
     }
 
     deleteEvent(id: string) {
         return this.authService.user.pipe(take(1), exhaustMap(user => {
+            this.username = user.email.substring(0, user.email.lastIndexOf("@"));
             return this.http
             .delete(
-            'https://eventmesh-1a5be.firebaseio.com/'+ user.id + '/events/' + id + '.json?', {
+            'https://eventmesh-1a5be.firebaseio.com/'+ this.username + '/events/' + id + '.json?', {
                 params: new HttpParams().set('auth', user.token)
             }
             );
         })
         );
     }
+
+
+
+
+    /*
+   createAndStoreCity(title) {
+        this.added = true;
+        return this.authService.user.pipe(take(1), exhaustMap(user => {
+            this.username = user.email.substring(0, user.email.lastIndexOf("@"));
+            return this.http
+            .post<{ name: string }>(
+                'https://eventmesh-1a5be.firebaseio.com/'+ this.username + '/city' +'.json?', title, {
+                params: new HttpParams().set('auth', user.token)
+            }
+            );
+        })
+        );
+    }
+    fetchCity() {
+        return this.authService.user.pipe(take(1), exhaustMap(user => {
+            this.username = user.email.substring(0, user.email.lastIndexOf("@"));
+            return this.http
+            .get<{ [key: string]: City}>(
+                'https://eventmesh-1a5be.firebaseio.com/'+ this.username + '/city' +'.json?', {
+                params: new HttpParams().set('auth', user.token)
+            }
+            );
+        }),
+            map(responseData => {
+                const cityArray: City[] = [];
+                    for (const key in responseData) {
+                        if (responseData.hasOwnProperty(key)) {
+                            cityArray.push({ ...responseData[key], id: key });
+                        }
+                    }
+                return cityArray; 
+            })
+        );
+    }
+    */
+
 
 
 }

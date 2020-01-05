@@ -4,6 +4,10 @@ import {AuthService, AuthResponseData} from './auth.service';
 import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { DataStorageService } from '../shared/data-storage.service';
+import { WeatherService } from './weather.service';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { stringify } from '@angular/compiler/src/util';
+import { map, take, exhaustMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -19,16 +23,19 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService, 
     private router: Router,
-    private dataStorageService: DataStorageService) { }
+    private dataStorageService: DataStorageService,
+    private weatherService: WeatherService,
+    private http: HttpClient
+    ) { }
 
   ngOnInit() {
-    this.onFetchMode();
   }
 
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
   }
 
+  username: string;
   onSubmit(form: NgForm) {
     if(!form.valid) {
       return;
@@ -43,7 +50,8 @@ export class LoginComponent implements OnInit {
     if(this.isLoginMode) {
       authObs = this.authService.login(email, password);
     } else {
-      authObs =  this.authService.signup(email, password);
+      console.log('Signing up');
+      authObs = this.authService.signup(email, password);
     }
 
     authObs.subscribe(responseData => {
@@ -60,15 +68,16 @@ export class LoginComponent implements OnInit {
 
     form.reset();
   }
+  currentCity: String = null;
 
-  currentMode = 'light';
-
-  onFetchMode() {
-    this.dataStorageService.fetchMode().subscribe(resMode => {
-      this.currentMode = resMode[0].mode;
-      console.log(this.currentMode);
+  /*
+  onFetchCity() {
+    this.weatherService.fetchCity().subscribe(resCity => {
+      this.currentCity = resCity[0].title;
+      console.log('onFetchCity: ' + this.currentCity);
     });
-    
   }
+  */
+
 
 }

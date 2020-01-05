@@ -24,7 +24,6 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.isFetching = true;
-    this.onFetchMode();
     this.dataStorageService.fetchTasks().subscribe(tasks => {
       this.isFetching = false;
       this.loadedTasks = tasks;
@@ -89,7 +88,6 @@ export class MainComponent implements OnInit {
     } else if (this.authService.signedin === false) {
       this.loadedEvents.push(eventTitle);
     }
-    
   }
   onFetchEvents() {
     this.isFetching = true;
@@ -109,15 +107,4 @@ export class MainComponent implements OnInit {
   }
 
 
-  currentMode: string;
-  onFetchMode() {
-    if(this.authService.signedin === true) {
-      this.dataStorageService.fetchMode().subscribe(resMode => {
-        this.currentMode = resMode[0].mode;
-        console.log(this.currentMode);
-      }, error => {
-        this.error = error.message;
-      });
-    }
-  }
 }

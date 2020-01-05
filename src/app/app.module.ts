@@ -4,17 +4,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserComponent } from './home/user/user.component';
+import { UserComponent } from './login/user/user.component';
 import { WeatherComponent } from './home/weather/weather.component';
 import { DateComponent } from './home/date/date.component';
 import { HomeComponent } from './home/home.component';
 import { MonthComponent } from './month/month.component';
 import { LoginComponent } from './login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MainComponent } from './home/main/main.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { OptionsComponent } from './login/options/options.component';
+import { AuthInterceptorService } from './home/date/auth-interceptor.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -42,7 +43,13 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, 
+      useClass: AuthInterceptorService, 
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

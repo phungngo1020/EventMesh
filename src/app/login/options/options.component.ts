@@ -22,12 +22,6 @@ export class OptionsComponent implements OnInit {
     this.userSub = this.authService.user.subscribe(user => {
       this.isAuthenticated = !!user;
     });
-   
-    if(this.dataStorageService.fetchMode()===null) {
-      this.onCreateMode();
-    } else {
-      this.onFetchMode();
-    }
   }
 
 
@@ -48,48 +42,13 @@ export class OptionsComponent implements OnInit {
       this.mode = 'dark';
     }
   }
-  onCreateMode() {
-    //if(this.isAuthenticated === true) {
-      this.dataStorageService.createAndStoreMode('light').subscribe(responseData => {
-        console.log(responseData);
-        this.dataStorageService.fetchMode().subscribe(resMode => {
-          this.currentMode = resMode[0].mode;
-          this.mode = this.currentMode;
-          this.modeId = resMode[0].id;
-          console.log(this.currentMode);
-        });
-      });
-    /*} else if (this.isAuthenticated === false) {
-      this.switchMode();
-      this.currentMode = this.mode;
-    }*/
-  }
 
-  onUpdateMode() {
-      console.log(this.modeId);
-      console.log('before: ' + this.mode);
-      this.onFetchMode();
-      this.switchMode();
-      console.log('after: ' + this.mode);
-      this.dataStorageService.updateMode(this.modeId, this.mode).subscribe(resMode => {
-        this.currentMode = resMode[0].mode;
-        this.mode = this.currentMode;
-        console.log(this.currentMode);
-      });
-      this.router.navigate(['/']);
-  }
-
-  onFetchMode() {
-    this.dataStorageService.fetchMode().subscribe(resMode => {
-      this.currentMode = resMode[0].mode;
-      this.modeId = resMode[0].id;
-      console.log(this.currentMode);
-    }, error => {
-      this.error = error.message;
-    });
+  onLogout() {
+    this.authService.logout();
+    this.authService.username = null;
   }
 
   reloadPage(){
     window.location.reload();
- }
+  }
 }
