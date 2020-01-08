@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Task } from '../../shared/task.model';
-import { Event } from '../../shared/event.model';
-import { DataStorageService } from '../../shared/data-storage.service';
-import { AuthService } from '../../login/auth.service';
+import { Task } from '../../shared/models/task.model';
+import { Event } from '../../shared/models/event.model';
+import { DataStorageService } from '../../shared/services/data-storage.service';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-main',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataStorageService } from '../../shared/data-storage.service';
+
 @Component({
   selector: 'app-date',
   templateUrl: './date.component.html',
@@ -10,7 +10,7 @@ export class DateComponent implements OnInit {
   today: number = Date.now();
   error = null;
 
-  constructor(private dataStorageService: DataStorageService) { }
+  constructor() { }
 
   ngOnInit() {
   }

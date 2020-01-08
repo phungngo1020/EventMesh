@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, take, exhaustMap } from 'rxjs/operators';
-import { Task } from './task.model';
-import { Event } from './event.model';
-import { City } from './city.model';
-import { AuthService } from '../login/auth.service';
+import { Task } from '../models/task.model';
+import { Event } from '../models/event.model';
+import { City } from '../models/city.model';
+import { AuthService } from './auth.service';
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService {

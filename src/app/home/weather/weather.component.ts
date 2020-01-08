@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthService } from '../../login/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 //import { WeatherService } from './weather.service';
 //import { DataStorageService } from '../../shared/data-storage.service';
 //import { City } from '../../shared/city.model';

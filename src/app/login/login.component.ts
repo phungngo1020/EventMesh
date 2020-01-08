@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {AuthService, AuthResponseData} from './auth.service';
+import {AuthService, AuthResponseData} from '../shared/services/auth.service';
 import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { DataStorageService } from '../shared/data-storage.service';
-import { WeatherService } from './weather.service';
+import { DataStorageService } from '../shared/services/data-storage.service';
+import { WeatherService } from '../shared/services/weather.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { stringify } from '@angular/compiler/src/util';
 import { map, take, exhaustMap } from 'rxjs/operators';
 
 @Component({

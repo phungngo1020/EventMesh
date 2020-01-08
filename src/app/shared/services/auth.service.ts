@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { catchError, take, tap, exhaustMap } from 'rxjs/operators';
 import { throwError, BehaviorSubject } from 'rxjs';
-import { User } from './user.model';
+import { User } from '../models/user.model';
 import { Router } from '@angular/router';
 import { tokenName } from '@angular/compiler';
 

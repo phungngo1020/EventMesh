@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { MainComponent } from './home/main/main.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { OptionsComponent } from './login/options/options.component';
-import { AuthInterceptorService } from './home/date/auth-interceptor.service';
+import { AuthInterceptorService } from './shared/services/auth-interceptor.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },

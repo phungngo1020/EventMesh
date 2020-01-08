@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, take, exhaustMap } from 'rxjs/operators';
-import { AuthService } from '../../login/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 
 export interface City {
     title: string;

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, take, exhaustMap } from 'rxjs/operators';
-import { AuthService } from '../login/auth.service';
+import { AuthService } from './auth.service';
 
 @Injectable({providedIn: 'root'})
 export class WeatherService {
@@ -11,6 +11,52 @@ export class WeatherService {
         private http: HttpClient, 
         private authService: AuthService) {}
         
+
+/*
+   createAndStoreCity(title) {
+        this.added = true;
+        return this.authService.user.pipe(take(1), exhaustMap(user => {
+            this.username = user.email.substring(0, user.email.lastIndexOf("@"));
+            return this.http
+            .post<{ name: string }>(
+                'https://eventmesh-1a5be.firebaseio.com/'+ this.username + '/city' +'.json?', title, {
+                params: new HttpParams().set('auth', user.token)
+            }
+            );
+        })
+        );
+    }
+    fetchCity() {
+        return this.authService.user.pipe(take(1), exhaustMap(user => {
+            this.username = user.email.substring(0, user.email.lastIndexOf("@"));
+            return this.http
+            .get<{ [key: string]: City}>(
+                'https://eventmesh-1a5be.firebaseio.com/'+ this.username + '/city' +'.json?', {
+                params: new HttpParams().set('auth', user.token)
+            }
+            );
+        }),
+            map(responseData => {
+                const cityArray: City[] = [];
+                    for (const key in responseData) {
+                        if (responseData.hasOwnProperty(key)) {
+                            cityArray.push({ ...responseData[key], id: key });
+                        }
+                    }
+                return cityArray; 
+            })
+        );
+    }
+    */
+
+
+
+
+
+
+
+
+
         /*
         fetchCity() {
             return this.authService.user.pipe(take(1), exhaustMap(user => {
