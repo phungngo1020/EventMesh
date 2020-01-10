@@ -11,7 +11,7 @@
 
     width: 20vw;
     height: 100vh;
-    background-image: url(../../../../Images/black-1.jpg);
+    background-image: url(../shared/images/black-1.jpg);
     background-size: cover;
 }
 

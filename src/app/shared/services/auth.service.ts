@@ -20,7 +20,7 @@ export class AuthService {
     user = new BehaviorSubject<User>(null); 
     username: string;
     signedin = false;
-    
+    private tokenExpirationTimer: any;
 
     constructor(
         private http: HttpClient, 
@@ -84,14 +84,30 @@ export class AuthService {
             userData._token, 
             new Date(userData._tokenExpirationDate)
         );
+        this.signedin = true;
+        this.username = userData.email;
         if(loadedUser.token) {
             this.user.next(loadedUser);
+            const expirationDuration = new Date(userData._tokenExpirationDate).getTime() - new Date().getTime();
+            this.autoLogout(expirationDuration);
         }
     }
 
     logout() {
         this.user.next(null);
         this.router.navigate(['/']);
+        localStorage.removeItem('userData');
+        if (this.tokenExpirationTimer) {
+            clearTimeout(this.tokenExpirationTimer);
+        }
+        this.tokenExpirationTimer = null;
+        this.signedin = false;
+    }
+
+    autoLogout(expirationDuration: number) {
+        this.tokenExpirationTimer = setTimeout(() => {
+            this.logout();
+        }, expirationDuration);
     }
 
     private handleAuthentication(
@@ -102,8 +118,10 @@ export class AuthService {
     ) {
         const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
         const user = new User(email, userId, token, expirationDate);
+        this.autoLogout(expiresIn * 1000);
         this.user.next(user);
         localStorage.setItem('userData', JSON.stringify(user));
+        this.username = email;
     }
 
     private handleError(errorRes: HttpErrorResponse) {

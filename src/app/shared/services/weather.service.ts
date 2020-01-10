@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, take, exhaustMap } from 'rxjs/operators';
 import { AuthService } from './auth.service';
+import { City } from '../models/city.model';
 
 @Injectable({providedIn: 'root'})
 export class WeatherService {
@@ -10,10 +11,11 @@ export class WeatherService {
     constructor(
         private http: HttpClient, 
         private authService: AuthService) {}
-        
 
-/*
-   createAndStoreCity(title) {
+
+    username: string;
+        
+    createAndStoreCity(title) {
         this.added = true;
         return this.authService.user.pipe(take(1), exhaustMap(user => {
             this.username = user.email.substring(0, user.email.lastIndexOf("@"));
@@ -47,7 +49,7 @@ export class WeatherService {
             })
         );
     }
-    */
+
 
 
 

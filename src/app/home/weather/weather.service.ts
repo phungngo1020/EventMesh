@@ -18,6 +18,13 @@ export class WeatherService {
     ) {}
         
     username: string;
+
+
+        
+
+
+
+        /*
     createAndStoreCity(title: string) {
         return this.authService.user.pipe(take(1), exhaustMap(user => {
             this.username = user.email.substring(0, user.email.lastIndexOf("@"));
@@ -31,7 +38,6 @@ export class WeatherService {
         );
     }
 
-    /*
         fetchCity() {
             return this.authService.user.pipe(take(1), exhaustMap(user => {
                 return this.http

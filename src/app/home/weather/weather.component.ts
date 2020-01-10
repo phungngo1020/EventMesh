@@ -48,6 +48,14 @@ export class WeatherComponent implements OnInit {
     return this.temp = (value*1.8 + 32).toFixed(2) + ' F.';
   }
 
+  onCreateCity(eventTitle) {
+    if(this.authService.signedin===true) {
+      console.log("weather.component: signed in");
+    } else if (this.authService.signedin === false) {
+      console.log("weather.component: not signed in");
+    }
+  }
+
   /*
   loadedCities: City[] = [];
   loadedCity: City;

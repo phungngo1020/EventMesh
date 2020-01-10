@@ -20,8 +20,6 @@ export class UserComponent implements OnInit {
   }
 
   getUsername() {
-    console.log("getusername");
-    if(this.username !== null)
-      this.username = this.authService.username.substring(0, this.authService.username.lastIndexOf("@"));
+    this.username = this.authService.username.substring(0, this.authService.username.lastIndexOf("@"));
   }
 }
